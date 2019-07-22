@@ -14,19 +14,19 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
       name: 'Spring Boot',
       types: 'Mitali',
-      health: '06/09/2016',
+    
       attack: '06/09/2017',
       defense: '06/09/2017',
      speed: 'Pune',
        healing: 'Active',
       recovery: 154
-      
+
      
     },
     'Ethereal Moodmorph': {
       name: 'Angular',
       types: 'Sagar',
-      health: '06/09/2016',
+     
       attack: '06/09/2017',
       defense: '06/09/2017',
       speed: 'Pune',
@@ -37,7 +37,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Dwarf Bronnis': {
       name: 'Node js',
       types: 'Gautam kumar',
-      health: '06/09/2016',
+     
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
@@ -47,7 +47,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Lady Sabrina': {
       name: 'Java',
       types: 'Watner',
-      health: '06/09/2016',
+     
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -57,7 +57,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Techno Fox': {
       name: 'Machine learning',
       types: 'jackson',
-       health: '06/09/2016',
+      
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -67,7 +67,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Cleric Typh': {
       name: 'Testing Tool',
       types: 'sourav',
-       health: '06/09/2016',
+      
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -77,7 +77,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Technician Dustin': {
       name: 'Aws',
       types: 'Yogi',
-       health: '06/09/2016',
+     
       attack: '06/09/2017',
       defense: '06/09/2017',
      healing: 'Active',
@@ -87,7 +87,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Dancer Galileo': {
       name: 'Spring Data',
       types: 'gajveer',
-      health: '06/09/2016',
+     
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
@@ -213,7 +213,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     updatedHero.speed = Math.round(updatedHero.speed * (1 + (Math.random() / 8)));
     updatedHero.recovery = Math.round(updatedHero.recovery * (1 + (Math.random() / 8)));
     updatedHero.healing = Math.round(updatedHero.healing * (1 + (Math.random() / 8)));
-    updatedHero.health = Math.round(updatedHero.health * (1 + (Math.random() / 8)));
+    
 
     const newHeroData = { ... this.heroes$.value };
     newHeroData[heroName] = updatedHero;
@@ -227,7 +227,7 @@ rejectUp(heroName: string) {
     updatedHero.speed = Math.round(updatedHero.speed * (1 + (Math.random() / 8)));
     updatedHero.recovery = Math.round(updatedHero.recovery * (1 + (Math.random() / 8)));
     updatedHero.healing = Math.round(updatedHero.healing * (1 + (Math.random() / 8)));
-    updatedHero.health = Math.round(updatedHero.health * (1 + (Math.random() / 8)));
+   
 
     const newHeroData = { ... this.heroes$.value };
     newHeroData[heroName] = updatedHero;
