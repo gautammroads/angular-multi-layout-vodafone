@@ -17,7 +17,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
      
       attack: '06/09/2017',
       defense: '06/09/2017',
-     speed: 'Pune',
+      speed: 'Pune',
        healing: 'Active',
       recovery: 154
       
