@@ -8,6 +8,7 @@ import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -53,6 +54,16 @@ const appRoutes: Routes = [
           { path: 'profile', component: ProfileComponent },
         ]
     },
+
+    { 
+        path: '', 
+        component: SiteLayoutComponent,
+        children: [
+         
+          { path: 'dashboard', component: DashboardComponent },
+        ]
+    },
+    
     
 
     //no layout routes
