@@ -119,8 +119,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   ngOnInit() {
     this.heroes$.subscribe(changedHeroData => {
       const superlatives = {
-        'highest-attack': null,
-        'lowest-attack': null,
         'highest-defense': null,
         'lowest-defense': null,
         'highest-speed': null,

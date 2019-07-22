@@ -45,11 +45,7 @@ $(document).ready(function(){
       Start Date <span *ngIf="sortKey$.value === 'attack'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
      </th>
     <td cdk-cell 
-        *cdkCellDef="let row" 
-        [ngClass]="{ 
-                     'table-success': superlatives$.value['highest-attack'] === row.name,
-                     'table-danger': superlatives$.value['lowest-attack'] === row.name
-                   }">
+        *cdkCellDef="let row" >
       {{row.attack}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
@@ -127,7 +123,7 @@ $(document).ready(function(){
        Action <span ></span>
     </th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="levelUp(row.name)">Apply</button>
+      <button class="btn btn-primary" (click)="levelUp(row.name)">View</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>

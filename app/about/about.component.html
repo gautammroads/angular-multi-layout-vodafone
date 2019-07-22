@@ -46,10 +46,7 @@ $(document).ready(function(){
      </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
-        [ngClass]="{ 
-                     'table-success': superlatives$.value['highest-attack'] === row.name,
-                     'table-danger': superlatives$.value['lowest-attack'] === row.name
-                   }">
+    > 
       {{row.attack}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>

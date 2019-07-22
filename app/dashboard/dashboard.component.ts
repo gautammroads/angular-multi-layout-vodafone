@@ -102,8 +102,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   ngOnInit() {
     this.heroes$.subscribe(changedHeroData => {
       const superlatives = {
-        'highest-attack': null,
-        'lowest-attack': null,
         'highest-defense': null,
         'lowest-defense': null,
         'highest-speed': null,
@@ -191,7 +189,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
 
   levelUp(heroName: string) {
     const updatedHero = { ... this.heroes$.value[heroName] };
-    updatedHero.attack = Math.round(updatedHero.attack * (1 + (Math.random() / 8)));
     updatedHero.defense = Math.round(updatedHero.defense * (1 + (Math.random() / 8)));
     updatedHero.speed = Math.round(updatedHero.speed * (1 + (Math.random() / 8)));
     updatedHero.recovery = Math.round(updatedHero.recovery * (1 + (Math.random() / 8)));

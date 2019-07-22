@@ -1,0 +1,19 @@
+
+.body {
+   
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #e60001;
+    border-color: #e60001;
+}
+.table td, .table th {
+    padding: .25rem;
+    vertical-align: middle;
+    border-top: 1px solid #eceeef;
+}
