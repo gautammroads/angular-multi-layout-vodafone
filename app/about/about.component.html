@@ -39,15 +39,6 @@ $(document).ready(function(){
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
-  <!-- Hero Types Column -->
-  <ng-container cdkColumnDef="types">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('types')">
-      Trainee Name <span *ngIf="sortKey$.value === 'types'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-    </th>
-    <td cdk-cell *cdkCellDef="let row"> {{row.types}} </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
   <!-- Hero Attack Column -->
   <ng-container cdkColumnDef="attack">
     <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('attack')">

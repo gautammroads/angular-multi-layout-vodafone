@@ -13,8 +13,6 @@ export class AboutComponent  implements OnInit {
 heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
       name: 'Spring Boot',
-      types: 'Mitali',
-     
       attack: '06/09/2017',
       defense: '06/09/2017',
       speed: 'Pune',
@@ -25,8 +23,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Ethereal Moodmorph': {
       name: 'Angular',
-      types: 'Sagar',
-    
       attack: '06/09/2017',
       defense: '06/09/2017',
       speed: 'Pune',
@@ -36,8 +32,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Dwarf Bronnis': {
       name: 'Node js',
-      types: 'Gautam kumar',
-     
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
@@ -46,8 +40,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Lady Sabrina': {
       name: 'Java',
-      types: 'Watner',
-     
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -56,8 +48,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Techno Fox': {
       name: 'Machine learning',
-      types: 'jackson',
-      
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -66,8 +56,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Cleric Typh': {
       name: 'Testing Tool',
-      types: 'sourav',
-      
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -76,8 +64,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Technician Dustin': {
       name: 'Aws',
-      types: 'Yogi',
-       
       attack: '06/09/2017',
       defense: '06/09/2017',
      healing: 'Active',
@@ -86,8 +72,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Dancer Galileo': {
       name: 'Spring Data',
-      types: 'gajveer',
-     
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
@@ -99,7 +83,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   tableDataSource$ = new BehaviorSubject<any[]>([]);
   displayedColumns$ = new BehaviorSubject<string[]>([
     'name',
-    'types',
     'attack',
     'defense',
     'speed',
@@ -135,7 +118,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
 
       Object.values(changedHeroData).forEach(hero => {
         Object.keys(hero).forEach(key => {
-          if (key === 'name' || key === 'types') { return; }
+          if (key === 'name') { return; }
 
           const highest = `highest-${key}`;
           if (!superlatives[highest] || hero[key] > changedHeroData[superlatives[highest]][key]) {
