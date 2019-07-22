@@ -1,0 +1,87 @@
+<div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Announce Training</h2>
+        <label for="inputEmail" class="sr-only">Course Name</label>
+        <input type="email" id="inputName" class="form-control" placeholder="Course Name" required autofocus>
+         <label for="inputEmail" class="sr-only">Venue</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Venue Details" required>
+        <label for="inputPassword" class="sr-only">Trainer Name</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Trainer Name" required>
+        <input type="text"
+           placeholder="Nomination due date"
+           class="form-control"
+           bsDatepicker>
+        <label for="inputCPassword" class="sr-only">Course content</label>
+        <textarea name="content" form="usrform" id="content" class="form-control" placeholder="Confirm Password" required>Enter Course content here...</textarea>
+        Attachment <input type="file" name="content" form="usrform" id="content" class="form-control"multiple>
+         
+   
+   <input type="text"
+           placeholder="Start date"
+           class="form-control"
+           bsDatepicker>
+   
+    <input type="text"
+           placeholder="End date"
+           class="form-control"
+           bsDatepicker>
+   
+ <button class="btn btn-lg btn-primary btn-block" type="button">Announce</button>
+      </form>
+   
+    </div> <!-- /container -->
+   
+<style>
+.form-signin {
+  max-width: 500px;
+  padding: 15px;
+  padding-top: 50px;
+  margin-right: 50px;
+  
+}
+.input-group{
+   max-width: 500px!impot;
+ 
+  padding-top: 50px;
+  margin-right: 50px;
+}
+.form-control{
+  max-width: 500px;
+  
+  padding-top: 50px;
+  margin-right: 50px;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 20px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.btn-primary {
+    color: #292b2c;
+    background-color: #e60001;
+    border-color: ##e60001;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  padding-left: 50px;
+  font-size: 16px;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
