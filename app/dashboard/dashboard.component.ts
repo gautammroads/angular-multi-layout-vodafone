@@ -157,6 +157,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
         const filteredResults = heroesArray.filter(hero => {
           return Object.values(hero)
             .reduce((prev, curr) => {
+              
               return prev || curr.toString().toLowerCase().includes(searchTerm.toLowerCase());
             }, false);
         });
