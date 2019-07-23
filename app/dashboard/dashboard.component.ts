@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { FormControl } from '@angular/forms';
 
@@ -10,6 +11,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  
 heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
       name: 'Spring Boot',
@@ -97,7 +99,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   sortKey$ = new BehaviorSubject<string>('name');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
-  constructor() { }
+ constructor(private router: Router) {}
 
   ngOnInit() {
     this.heroes$.subscribe(changedHeroData => {
@@ -188,17 +190,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   }
 
   levelUp(heroName: string) {
-    const updatedHero = { ... this.heroes$.value[heroName] };
-    updatedHero.defense = Math.round(updatedHero.defense * (1 + (Math.random() / 8)));
-    updatedHero.speed = Math.round(updatedHero.speed * (1 + (Math.random() / 8)));
-    updatedHero.recovery = Math.round(updatedHero.recovery * (1 + (Math.random() / 8)));
-    updatedHero.healing = Math.round(updatedHero.healing * (1 + (Math.random() / 8)));
-   
-
-    const newHeroData = { ... this.heroes$.value };
-    newHeroData[heroName] = updatedHero;
-
-    this.heroes$.next(newHeroData);
+  this.router.navigateByUrl('/view');
   }
 
 }
