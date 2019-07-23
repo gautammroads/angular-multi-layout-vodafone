@@ -5,8 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SiteLayoutComponent } from './_layout/site-layout/site-layout.component';
 import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 
-import { TraineeComponent } from './trainee/trainee.component';
-
+//import { TraineeComponent } from './trainee/trainee.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -38,14 +37,15 @@ const appRoutes: Routes = [
          
         ]
     },
-     { 
-        path: '', 
-        component: SiteLayoutComponent,
-        children: [
-          { path: 'view', component: TraineeComponent},
+    //  { 
+    //     path: '', 
+    //     component: SiteLayoutComponent,
+    //     children: [
+    //       { path: 'view', component: TraineeComponent},
          
-        ]
-    },
+    //     ]
+    // },
+
      { 
         path: '', 
         component: SiteLayoutComponent,

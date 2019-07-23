@@ -190,7 +190,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   }
 
   levelUp(heroName: string) {
-  this.router.navigateByUrl('/view');
+  this.router.navigateByUrl('/profile');
   }
 
 }
