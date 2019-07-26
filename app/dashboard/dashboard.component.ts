@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
 import { FormControl } from '@angular/forms';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -191,7 +189,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   }
 
   levelUp(heroName: string) {
-  this.router.navigateByUrl('/profile');
+  this.router.navigateByUrl('/view');
   }
 
 }

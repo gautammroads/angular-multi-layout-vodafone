@@ -16,7 +16,7 @@ import { SiteFooterComponent } from './_layout/site-footer/site-footer.component
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-//import { TraineeComponent } from './trainee/trainee.component';
+import { TraineeComponent } from './trainee/trainee.component';
 
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -32,7 +32,7 @@ import { routing } from './app.routing';
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
   providers: [],
-  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent ],
+  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent,TraineeComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

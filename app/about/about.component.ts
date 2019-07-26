@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
+
 export class AboutComponent  implements OnInit {
 heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
