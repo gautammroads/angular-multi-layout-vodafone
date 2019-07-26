@@ -1,5 +1,159 @@
-<div>
 
-<span>gautam</span>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".btn-group .btn").click(function(){
+		var inputValue = $(this).find("input").val();
+		if(inputValue != 'all'){
+			var target = $('table tr[data-status="' + inputValue + '"]');
+			$("table tbody tr").not(target).hide();
+			target.fadeIn();
+		} else {
+			$("table tbody tr").fadeIn();
+		}
+	});
+	// Changing the class of status label to support Bootstrap 4
+    var bs = $.fn.tooltip.Constructor.VERSION;
+    var str = bs.split(".");
+    if(str[0] == 4){
+        $(".label").each(function(){
+        	var classStr = $(this).attr("class");
+            var newClassStr = classStr.replace(/label/g, "badge");
+            $(this).removeAttr("class").addClass(newClassStr);
+        });
+    }
+});
+</script>
+
+
+
+
+<table cdk-table [dataSource]="dataOnPage$" class="table table-hover">
+  
+  <!-- Hero Name Column -->
+  <ng-container cdkColumnDef="name">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('name')"> 
+      Trainee Name <span *ngIf="sortKey$.value === 'name'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Attack Column -->
+  <ng-container cdkColumnDef="attack">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('attack')">
+      Start Date <span *ngIf="sortKey$.value === 'attack'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+     </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" >
+      {{row.attack}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Defense Column -->
+  <ng-container cdkColumnDef="defense">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('defense')">
+      Due Date <span *ngIf="sortKey$.value === 'defense'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        [ngClass]="{ 
+                     'table-success': superlatives$.value['highest-defense'] === row.name,
+                     'table-danger': superlatives$.value['lowest-defense'] === row.name
+                   }">
+      {{row.defense}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Speed Column -->
+  <ng-container cdkColumnDef="speed">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('speed')">
+      Venue <span *ngIf="sortKey$.value === 'speed'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        [ngClass]="{ 
+                 'table-success': superlatives$.value['highest-speed'] === row.name,
+                 'table-danger': superlatives$.value['lowest-speed'] === row.name
+               }">
+  {{row.speed}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Healing Column -->
+  <ng-container cdkColumnDef="healing">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('healing')">
+      Status <span *ngIf="sortKey$.value === 'healing'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        [ngClass]="{ 
+                     'table-success': superlatives$.value['highest-healing'] === row.name,
+                     'table-danger': superlatives$.value['lowest-healing'] === row.name
+                   }">
+      {{row.healing}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Recovery Column -->
+  <ng-container cdkColumnDef="recovery">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('recovery')">
+      Recovery <span *ngIf="sortKey$.value === 'recovery'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        [ngClass]="{ 
+                     'table-success': superlatives$.value['highest-recovery'] === row.name,
+                     'table-danger': superlatives$.value['lowest-recovery'] === row.name
+                   }">
+      {{row.recovery}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+ 
+
+  <!-- Level Up Column -->
+  <ng-container cdkColumnDef="levelUp">
+    <th cdk-header-cell *cdkHeaderCellDef>
+       Action <span ></span>
+    </th>
+    <td cdk-cell *cdkCellDef="let row">
+      <button class="btn btn-primary" (click)="levelUp(row.name)">View</button>
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+
+  <!-- Header and Row Declarations -->
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
+
+</table>
+
+<div class="row">
+  <div class="col-6">
+    <div class="form-inline">
+      <div class="form-group">
+        <div class="input-group mr-3">
+          <button class="btn btn-primary" (click)="levelUp(row.name)">Export</button>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="float-right">
+      <ngb-pagination 
+        [collectionSize]="tableDataSource$.value.length" 
+        [pageSize]="pageSize$.value"
+        [page]="currentPage$.value"
+        (pageChange)="currentPage$.next($event)">
+      </ngb-pagination>
+    </div>
+  </div>
 </div>
