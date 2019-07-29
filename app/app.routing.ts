@@ -37,14 +37,7 @@ const appRoutes: Routes = [
          
         ]
     },
-    //  { 
-    //     path: '', 
-    //     component: SiteLayoutComponent,
-    //     children: [
-    //       { path: 'view', component: TraineeComponent},
-         
-    //     ]
-    // },
+   
 
      { 
         path: '', 
