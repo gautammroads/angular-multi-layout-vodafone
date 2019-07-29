@@ -6,7 +6,7 @@
   
 }
 .input-group{
-   max-width: 500px!impot;
+   max-width: 500px;
  
   padding-top: 50px;
   margin-right: 50px;
@@ -27,7 +27,7 @@
 .btn-primary {
     color: #292b2c;
     background-color: #e60001;
-    border-color: ##e60001;
+    border-color: #e60001;
 }
 .form-signin .form-control {
   position: relative;
