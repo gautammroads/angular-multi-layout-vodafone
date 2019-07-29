@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { TraineeComponent } from './trainee/trainee.component';
+import { HttpClientModule } from  '@angular/common/http';
 
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -29,9 +30,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { routing } from './app.routing';
 
+import { DataService } from './data.service';
+
 @NgModule({
-  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
-  providers: [],
+  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
+  providers: [ DataService],
   declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent,TraineeComponent ],
   bootstrap:    [ AppComponent ]
 })
