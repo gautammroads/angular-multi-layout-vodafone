@@ -174,7 +174,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
 
     this.searchFormControl.setValue('');
   }
-
   adjustSort(key: string) {
     if (this.sortKey$.value === key) {
       if (this.sortDirection$.value === 'asc') {

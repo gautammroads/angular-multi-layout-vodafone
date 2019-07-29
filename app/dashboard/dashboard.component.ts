@@ -19,7 +19,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
        healing: 'Active',
       recovery: 154
       
-     
+    
     },
     'Ethereal Moodmorph': {
       name: 'Angular',
