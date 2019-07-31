@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from './register.service';
+import { Announce } from './announce';
 
 @Component({
   selector: 'app-register',
@@ -8,9 +9,13 @@ import { RegisterService } from './register.service';
 })
 export class RegisterComponent implements OnInit {
 
+announce:Announce;
+
   constructor(private registerService:RegisterService) { }
 
+
   ngOnInit() {
+    this.announce.venue="pune";
   }
 
 }

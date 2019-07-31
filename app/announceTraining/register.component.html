@@ -3,27 +3,27 @@
       <form class="form-signin">
         <h2 class="form-signin-heading">Announce Training</h2>
         <label for="inputCourse" class="sr-only">Course Name</label>
-        <input type="text" id="inputCourse" class="form-control" placeholder="Course Name" required autofocus>
+        <input type="text" id="inputCourse" class="form-control" placeholder="Course Name" ([ngModel])= announce.courseName required autofocus>
          <label for="inputVenue" class="sr-only">Venue</label>
         <input type="text" id="inputVenue
-        " class="form-control" placeholder="Venue Details" required>
-        <label for="inputPassword" class="sr-only">Trainer Name</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Trainer Name" required>
+        " class="form-control" placeholder="Venue Details" ([ngModel])= announce.venue required>
+        <label for="inputTrainer" class="sr-only">Trainer Name</label>
+        <input type="text" id="inputTrainer" class="form-control" placeholder="Trainer Name" ([ngModel])= announce.trainerName required>
         <input type="text"
            placeholder="Nomination due date"
-           class="form-control"
+           class="form-control" ([ngModel])= announce.nDuedate
            bsDatepicker>
             <input type="text"
            placeholder="Start date"
-           class="form-control"
+           class="form-control" ([ngModel])= announce.nStartdate
            bsDatepicker>
    
     <input type="text"
            placeholder="End date"
-           class="form-control"
+           class="form-control" ([ngModel])= announce.nEnddate
            bsDatepicker>
         <label for="inputCPassword" class="sr-only">Course content</label>
-        <textarea name="content" form="usrform" id="content" class="form-control" placeholder="Confirm Password" required>Enter Course content here...</textarea>
+        <textarea name="content" form="usrform" id="content" class="form-control" placeholder="Confirm Password" ([ngModel])= announce.courseContent required>Enter Course content here...</textarea>
         Attachment <input type="file" name="content" form="usrform" id="content" class="form-control"multiple>
          
    
