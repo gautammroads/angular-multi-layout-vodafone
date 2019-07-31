@@ -31,10 +31,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { routing } from './app.routing';
 
 import { DataService } from './data.service';
+import { RegisterService } from './register/register.service';
 
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
-  providers: [ DataService],
+  providers: [ DataService, RegisterService],
   declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent,TraineeComponent ],
   bootstrap:    [ AppComponent ]
 })
