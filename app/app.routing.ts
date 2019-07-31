@@ -11,7 +11,7 @@ import { AboutComponent } from './viewTraining/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './traineeApproval/profile.component';
 import { RegisterComponent } from './announceTraining/register.component';
 
 

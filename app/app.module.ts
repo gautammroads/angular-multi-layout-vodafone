@@ -20,7 +20,7 @@ import { TraineeComponent } from './trainee/trainee.component';
 import { HttpClientModule } from  '@angular/common/http';
 
 import { RegisterComponent } from './announceTraining/register.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './traineeApproval/profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AboutComponent } from './viewTraining/about.component';
 import {CdkTableModule} from '@angular/cdk/table';
