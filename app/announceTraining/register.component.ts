@@ -8,14 +8,14 @@ import { Announce } from './announce';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-announce:Announce;
-
-  constructor(private registerService:RegisterService) { }
+ model: any = {};
 
 
   ngOnInit() {
-    this.announce.venue="pune";
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
   }
+
+  
 
 }
