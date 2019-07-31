@@ -19,10 +19,10 @@ import { HomeComponent } from './home/home.component';
 import { TraineeComponent } from './trainee/trainee.component';
 import { HttpClientModule } from  '@angular/common/http';
 
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './announceTraining/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './viewTraining/about.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -31,7 +31,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { routing } from './app.routing';
 
 import { DataService } from './data.service';
-import { RegisterService } from './register/register.service';
+import { RegisterService } from './announceTraining/register.service';
 
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
