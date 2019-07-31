@@ -5,14 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { SiteLayoutComponent } from './_layout/site-layout/site-layout.component';
 import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 
-
+import { TraineeComponent } from './trainee/trainee.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './viewTraining/about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RegisterComponent } from './register/register.component';
-
+import { ProfileComponent } from './traineeApproval/profile.component';
+import { RegisterComponent } from './announceTraining/register.component';
 
 
 const appRoutes: Routes = [
@@ -37,6 +37,8 @@ const appRoutes: Routes = [
          
         ]
     },
+   
+
      { 
         path: '', 
         component: SiteLayoutComponent,
@@ -45,7 +47,16 @@ const appRoutes: Routes = [
           { path: 'register', component: RegisterComponent },
         ]
     },
-    { 
+    
+         { 
+        path: '', 
+        component: SiteLayoutComponent,
+        children: [ 
+          { path: 'view', component: TraineeComponent },
+          ]
+    },
+   
+     { 
         path: '', 
         component: SiteLayoutComponent,
         children: [
@@ -53,6 +64,16 @@ const appRoutes: Routes = [
           { path: 'profile', component: ProfileComponent },
         ]
     },
+
+    { 
+        path: '', 
+        component: SiteLayoutComponent,
+        children: [
+         
+          { path: 'dashboard', component: DashboardComponent },
+        ]
+    },
+    
     
 
     //no layout routes

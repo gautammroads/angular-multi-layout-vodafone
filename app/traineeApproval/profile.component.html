@@ -1,5 +1,4 @@
 
-
 <script type="text/javascript">
 $(document).ready(function(){
 	$(".btn-group .btn").click(function(){
@@ -39,13 +38,23 @@ $(document).ready(function(){
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
+  <!-- Hero Types Column -->
+  <ng-container cdkColumnDef="types">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('types')">
+      Trainee Name <span *ngIf="sortKey$.value === 'types'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.types}} </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
   <!-- Hero Attack Column -->
   <ng-container cdkColumnDef="attack">
     <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('attack')">
       Start Date <span *ngIf="sortKey$.value === 'attack'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
      </th>
     <td cdk-cell 
-        *cdkCellDef="let row" >
+        *cdkCellDef="let row" 
+       >
       {{row.attack}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
@@ -119,15 +128,20 @@ $(document).ready(function(){
 
   <!-- Level Up Column -->
   <ng-container cdkColumnDef="levelUp">
-    <th cdk-header-cell *cdkHeaderCellDef>
-       Action <span ></span>
-    </th>
+    <th cdk-header-cell *cdkHeaderCellDef></th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="levelUp(row.name)">View</button>
+      <button class="btn btn-primary" (click)="levelUp(row.name)">Approve</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
-
+   <!-- Level Up Column -->
+  <ng-container cdkColumnDef="rejectUp">
+    <th cdk-header-cell *cdkHeaderCellDef></th>
+    <td cdk-cell *cdkCellDef="let row">
+      <button class="btn btn-primary" (click)="rejectUp(row.name)">Reject</button>
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
 
   <!-- Header and Row Declarations -->
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
@@ -149,7 +163,7 @@ $(document).ready(function(){
               <button 
                 class="btn btn-outline-secondary"
                 (click)="searchFormControl.setValue('')">
-                
+                x
               </button>
             </div>
         </div>

@@ -45,7 +45,8 @@ $(document).ready(function(){
       Start Date <span *ngIf="sortKey$.value === 'attack'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
      </th>
     <td cdk-cell 
-        *cdkCellDef="let row" >
+        *cdkCellDef="let row" 
+    > 
       {{row.attack}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
@@ -123,7 +124,7 @@ $(document).ready(function(){
        Action <span ></span>
     </th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="levelUp(row.name)">View</button>
+      <button class="btn btn-primary" (click)="levelUp(row.name)">Apply</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -149,7 +150,7 @@ $(document).ready(function(){
               <button 
                 class="btn btn-outline-secondary"
                 (click)="searchFormControl.setValue('')">
-                
+                x
               </button>
             </div>
         </div>

@@ -5,27 +5,25 @@ import { take } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class ProfileComponent implements OnInit {
+
+export class AboutComponent  implements OnInit {
 heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
       name: 'Spring Boot',
-      types: 'Mitali',
-      health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
-     speed: 'Pune',
+      speed: 'Pune',
        healing: 'Active',
       recovery: 154
+      
      
     },
     'Ethereal Moodmorph': {
       name: 'Angular',
-      types: 'Sagar',
-      health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
       speed: 'Pune',
@@ -35,8 +33,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Dwarf Bronnis': {
       name: 'Node js',
-      types: 'Gautam kumar',
-      health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
@@ -45,8 +41,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Lady Sabrina': {
       name: 'Java',
-      types: 'Watner',
-      health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -55,8 +49,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Techno Fox': {
       name: 'Machine learning',
-      types: 'jackson',
-       health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -65,8 +57,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Cleric Typh': {
       name: 'Testing Tool',
-      types: 'sourav',
-       health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
@@ -75,8 +65,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Technician Dustin': {
       name: 'Aws',
-      types: 'Yogi',
-       health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
      healing: 'Active',
@@ -85,8 +73,6 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     },
     'Dancer Galileo': {
       name: 'Spring Data',
-      types: 'gajveer',
-      health: '06/09/2016',
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
@@ -98,13 +84,12 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   tableDataSource$ = new BehaviorSubject<any[]>([]);
   displayedColumns$ = new BehaviorSubject<string[]>([
     'name',
-    'types',
     'attack',
     'defense',
     'speed',
     'healing',
-    'levelUp',
-    'rejectUp'
+    'levelUp'
+    
   ]);
   currentPage$ = new BehaviorSubject<number>(1);
   pageSize$ = new BehaviorSubject<number>(5);
@@ -134,7 +119,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
 
       Object.values(changedHeroData).forEach(hero => {
         Object.keys(hero).forEach(key => {
-          if (key === 'name' || key === 'types') { return; }
+          if (key === 'name') { return; }
 
           const highest = `highest-${key}`;
           if (!superlatives[highest] || hero[key] > changedHeroData[superlatives[highest]][key]) {
@@ -212,21 +197,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     updatedHero.speed = Math.round(updatedHero.speed * (1 + (Math.random() / 8)));
     updatedHero.recovery = Math.round(updatedHero.recovery * (1 + (Math.random() / 8)));
     updatedHero.healing = Math.round(updatedHero.healing * (1 + (Math.random() / 8)));
-    updatedHero.health = Math.round(updatedHero.health * (1 + (Math.random() / 8)));
-
-    const newHeroData = { ... this.heroes$.value };
-    newHeroData[heroName] = updatedHero;
-
-    this.heroes$.next(newHeroData);
-  }
-rejectUp(heroName: string) {
-    const updatedHero = { ... this.heroes$.value[heroName] };
-    updatedHero.attack = Math.round(updatedHero.attack * (1 + (Math.random() / 8)));
-    updatedHero.defense = Math.round(updatedHero.defense * (1 + (Math.random() / 8)));
-    updatedHero.speed = Math.round(updatedHero.speed * (1 + (Math.random() / 8)));
-    updatedHero.recovery = Math.round(updatedHero.recovery * (1 + (Math.random() / 8)));
-    updatedHero.healing = Math.round(updatedHero.healing * (1 + (Math.random() / 8)));
-    updatedHero.health = Math.round(updatedHero.health * (1 + (Math.random() / 8)));
+   
 
     const newHeroData = { ... this.heroes$.value };
     newHeroData[heroName] = updatedHero;

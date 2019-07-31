@@ -16,11 +16,13 @@ import { SiteFooterComponent } from './_layout/site-footer/site-footer.component
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { TraineeComponent } from './trainee/trainee.component';
+import { HttpClientModule } from  '@angular/common/http';
 
-import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './announceTraining/register.component';
+import { ProfileComponent } from './traineeApproval/profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './viewTraining/about.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -28,10 +30,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { routing } from './app.routing';
 
+import { DataService } from './data.service';
+import { RegisterService } from './announceTraining/register.service';
+
 @NgModule({
-  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
-  providers: [],
-  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent ],
+  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
+  providers: [ DataService, RegisterService],
+  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent,TraineeComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
