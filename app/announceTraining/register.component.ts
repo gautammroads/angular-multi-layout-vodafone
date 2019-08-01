@@ -16,6 +16,11 @@ export class RegisterComponent implements OnInit {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
   }
 
+
+announceTraining():void{
+
+   alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+}
   
 
 }
