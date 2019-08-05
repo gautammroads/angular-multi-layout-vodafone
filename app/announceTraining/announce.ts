@@ -1,14 +1,16 @@
 export interface Announce {
 
-id?:number;
+
 courseName?:string;
-venue?:string;
+venueName?:string;
 trainerName:string
-nDuedate?:Date;
-nStartdate?:Date;
-nEnddate?:Date;
+nDueDate?:Date;
+tStartDate?:Date;
+tEndDate?:Date;
 courseContent?:string;
-contentFile?:File;
+
+
+
 
 
 

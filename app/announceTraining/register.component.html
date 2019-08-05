@@ -28,6 +28,7 @@
                             <div *ngIf="trainerName.errors.required">Trainer Name is required</div>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="nDueDate">Nomination Due Date</label>
                         <input type="date" class="form-control" name="nDueDate" [(ngModel)]="model.nDueDate" #nDueDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nDueDate.invalid }"  />
@@ -53,12 +54,19 @@
                            
                         </div>
                     </div>
+
+                      <div class="form-group">
+                        <label for="courseContent">Course Content</label>
+                        <input type="text" class="form-control" name="courseContent" [(ngModel)]="model.courseContent" #trainerName="ngModel" />
+                        
+                    </div>
                     
                     
                     
                    
                     <div class="form-group">
                        <button class="btn btn-primary " (click)="announceTraining()" >Announce</button>
+                      
                     </div>
                 </form>
             </div>
