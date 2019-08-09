@@ -41,13 +41,13 @@ constructor(private registerService:RegisterService ) { }
   postTraining(): void {
     this.registerService.announceTraining(JSON.parse(JSON.stringify(this.model)))
       .subscribe(message => this.announcedata = message);
-      
+
   }
 
 announceTraining():void{
  this.postTraining();
   
-  alert("Teaxt"+this.announcedata.courseContent)
+ // alert("Teaxt"+this.announcedata.courseContent)
   
   
 
