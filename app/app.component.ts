@@ -18,7 +18,7 @@ export class AppComponent  {
       .subscribe(message => this.message = message);
   }
  ngOnInit() {
-  this.getHeroes();
+  //this.getHeroes();
   }
 
 

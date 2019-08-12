@@ -3,6 +3,7 @@ import { BehaviorSubject, combineLatest } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { FormControl } from '@angular/forms';
+import { ViewService } from './vie.service';
 
 @Component({
   selector: 'app-about',
@@ -98,9 +99,10 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   sortKey$ = new BehaviorSubject<string>('name');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
-  constructor() { }
+  constructor(private viewService:ViewService) { }
 
   ngOnInit() {
+    
     this.heroes$.subscribe(changedHeroData => {
       const superlatives = {
         'highest-attack': null,
