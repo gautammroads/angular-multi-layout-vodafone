@@ -3,7 +3,7 @@ import { BehaviorSubject, combineLatest } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { FormControl } from '@angular/forms';
-import { ViewService } from './vie.service';
+import { ViewService } from './view.service';
 
 @Component({
   selector: 'app-about',

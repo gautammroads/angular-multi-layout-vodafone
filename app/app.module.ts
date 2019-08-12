@@ -32,7 +32,7 @@ import { routing } from './app.routing';
 
 import { DataService } from './data.service';
 import { RegisterService } from './announceTraining/register.service';
-import { ViewService } from './dashboard/view.service';
+import { ViewService } from './viewTraining/view.service';
 
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
