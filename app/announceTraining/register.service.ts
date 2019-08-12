@@ -22,14 +22,14 @@ announce:Announce;
 
 
    
-msgUrl='http://localhost:8082/OnPremPoc/postdata';
+baseUrl='http://localhost:8082/OnPremPoc';
 
   constructor(private http: HttpClient) { }
 
 
 /** POST: add a new hero to the database */
   announceTraining(announce: Announce): Observable<Announce> {
-    return this.http.post<Announce>(this.msgUrl, announce);
+    return this.http.post<Announce>(this.baseUrl+'/postdata', announce);
 
 
   }
@@ -39,9 +39,16 @@ msgUrl='http://localhost:8082/OnPremPoc/postdata';
 
   getHeroes (): Observable<Message> {
     
-return this.http.get<Message>(this.msgUrl);
+return this.http.get<Message>(this.baseUrl+'/get');
   }
 
+
+
+  getTrainingDetails (): Observable<any> {
+    
+return this.http.get(this.baseUrl+'/getAllActiveTrainings');
+  }
+s
 
 
 }
