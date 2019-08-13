@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { RegisterService } from './register.service';
@@ -24,8 +25,7 @@ export class RegisterComponent implements OnInit {
 model: any={};
 message:Message;
 announcedata?: Announce;
-msgUrl='http://localhost:8082/OnPremPoc/postdata';
-
+announce?: Announce[];
 
 constructor(private registerService:RegisterService ) { }
 
@@ -45,11 +45,10 @@ constructor(private registerService:RegisterService ) { }
   }
 
 announceTraining():void{
- this.postTraining();
-  
- // alert("Teaxt"+this.announcedata.courseContent)
-  
-  
+ //this.postTraining();
+
+this.registerService.getTrainingDetails().subscribe(message => this.announce=message);
+ 
 
 }
   
