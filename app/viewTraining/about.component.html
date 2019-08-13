@@ -31,11 +31,11 @@ $(document).ready(function(){
 <table cdk-table [dataSource]="dataOnPage$" class="table table-hover">
   
   <!-- Hero Name Column -->
-  <ng-container cdkColumnDef="name">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('name')"> 
-      Course Name <span *ngIf="sortKey$.value === 'name'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="courseName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseName')"> 
+      Course Name <span *ngIf="sortKey$.value === 'courseName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
-    <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
+    <td cdk-cell *cdkCellDef="let row"> {{row.courseName}} </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
@@ -59,27 +59,21 @@ $(document).ready(function(){
     </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
-        [ngClass]="{ 
-                     'table-success': superlatives$.value['highest-defense'] === row.name,
-                     'table-danger': superlatives$.value['lowest-defense'] === row.name
-                   }">
+        >
       {{row.defense}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
   <!-- Hero Speed Column -->
-  <ng-container cdkColumnDef="speed">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('speed')">
-      Venue <span *ngIf="sortKey$.value === 'speed'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="venueName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('venueName')">
+      Venue <span *ngIf="sortKey$.value === 'venueName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
-        [ngClass]="{ 
-                 'table-success': superlatives$.value['highest-speed'] === row.name,
-                 'table-danger': superlatives$.value['lowest-speed'] === row.name
-               }">
-  {{row.speed}} 
+        >
+  {{row.venueName}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -119,12 +113,12 @@ $(document).ready(function(){
  
 
   <!-- Level Up Column -->
-  <ng-container cdkColumnDef="levelUp">
+  <ng-container cdkColumnDef="applyTraining">
     <th cdk-header-cell *cdkHeaderCellDef>
        Action <span ></span>
     </th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="levelUp(row.name)">Apply</button>
+      <button class="btn btn-primary" (click)="applyTraining(row.name)">Apply</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>

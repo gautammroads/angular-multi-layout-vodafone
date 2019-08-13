@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { Announce } from '../announceTraining/announce';
+import { Observable } from 'rxjs';
 
 import { FormControl } from '@angular/forms';
 import { ViewService } from './view.service';
@@ -12,131 +14,100 @@ import { ViewService } from './view.service';
 })
 
 export class AboutComponent  implements OnInit {
-heroes$ = new BehaviorSubject<{[name: string]: any}>({
+  announce:Announce[];
+heroes$ = new BehaviorSubject<{[courseName: string]: any}>({
     'Hammerer Maccabeus': {
-      name: 'Spring Boot',
+      courseName: 'Spring Boot',
       attack: '06/09/2017',
       defense: '06/09/2017',
-      speed: 'Pune',
+      venueName: 'Pune',
        healing: 'Active',
       recovery: 154
       
      
     },
     'Ethereal Moodmorph': {
-      name: 'Angular',
+      courseName: 'Angular',
       attack: '06/09/2017',
       defense: '06/09/2017',
-      speed: 'Pune',
+      venueName: 'Pune',
        healing: 'Active',
       recovery: 178
     
     },
     'Dwarf Bronnis': {
-      name: 'Node js',
+      courseName: 'Node js',
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
       recovery: 153,
-     speed: 'Pune'
+     venueName: 'Pune'
     },
     'Lady Sabrina': {
-      name: 'Java',
+      courseName: 'Java',
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
       recovery: 105,
-     speed: 'Pune'
+     venueName: 'Pune'
     },
     'Techno Fox': {
-      name: 'Machine learning',
+      courseName: 'Machine learning',
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
       recovery: 184,
-      speed: 'Pune'
+      venueName: 'Pune'
     },
     'Cleric Typh': {
-      name: 'Testing Tool',
+      courseName: 'Testing Tool',
       attack: '06/09/2017',
       defense: '06/09/2017',
        healing: 'Active',
       recovery: 272,
-      speed: 'Pune'
+      venueName: 'Pune'
     },
     'Technician Dustin': {
-      name: 'Aws',
+      courseName: 'Aws',
       attack: '06/09/2017',
       defense: '06/09/2017',
      healing: 'Active',
       recovery: 144,
-      speed: 'Pune'
+      venueName: 'Pune'
     },
     'Dancer Galileo': {
-      name: 'Spring Data',
+      courseName: 'Spring Data',
       attack: '06/09/2017',
       defense: '06/09/2017',
       healing: 'Active',
       recovery: 168,
-      speed: 'Pune'
+      venueName: 'Pune'
     }
   });
   superlatives$ = new BehaviorSubject<{[superlativeName: string]: string}>({});
   tableDataSource$ = new BehaviorSubject<any[]>([]);
   displayedColumns$ = new BehaviorSubject<string[]>([
-    'name',
+    'courseName',
     'attack',
     'defense',
-    'speed',
+    'venueName',
     'healing',
-    'levelUp'
+    'applyTraining'
     
   ]);
   currentPage$ = new BehaviorSubject<number>(1);
   pageSize$ = new BehaviorSubject<number>(5);
   dataOnPage$ = new BehaviorSubject<any[]>([]);
   searchFormControl = new FormControl();
-  sortKey$ = new BehaviorSubject<string>('name');
+  sortKey$ = new BehaviorSubject<string>('courseName');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
   constructor(private viewService:ViewService) { }
 
   ngOnInit() {
-    
-    this.heroes$.subscribe(changedHeroData => {
-      const superlatives = {
-        'highest-attack': null,
-        'lowest-attack': null,
-        'highest-defense': null,
-        'lowest-defense': null,
-        'highest-speed': null,
-        'lowest-speed': null,
-        'highest-healing': null,
-        'lowest-healing': null,
-        'highest-recovery': null,
-        'lowest-recovery': null,
-        'highest-health': null,
-        'lowest-health': null
-      };
 
-      Object.values(changedHeroData).forEach(hero => {
-        Object.keys(hero).forEach(key => {
-          if (key === 'name') { return; }
-
-          const highest = `highest-${key}`;
-          if (!superlatives[highest] || hero[key] > changedHeroData[superlatives[highest]][key]) {
-            superlatives[highest] = hero.name;
-          }
-
-          const lowest = `lowest-${key}`;
-          if (!superlatives[lowest] || hero[key] < changedHeroData[superlatives[lowest]][key]) {
-            superlatives[lowest] = hero.name;
-          }
-        });
-      });
-
-      this.superlatives$.next(superlatives);
-    });
+   this.viewService.getTrainingDetails().subscribe(message => this.announce=message);
+   
 
     combineLatest(this.tableDataSource$, this.currentPage$, this.pageSize$)
     .subscribe(([allSources, currentPage, pageSize]) => {
@@ -192,19 +163,13 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     this.sortDirection$.next('asc');
   }
 
-  levelUp(heroName: string) {
-    const updatedHero = { ... this.heroes$.value[heroName] };
-    updatedHero.attack = Math.round(updatedHero.attack * (1 + (Math.random() / 8)));
-    updatedHero.defense = Math.round(updatedHero.defense * (1 + (Math.random() / 8)));
-    updatedHero.speed = Math.round(updatedHero.speed * (1 + (Math.random() / 8)));
-    updatedHero.recovery = Math.round(updatedHero.recovery * (1 + (Math.random() / 8)));
-    updatedHero.healing = Math.round(updatedHero.healing * (1 + (Math.random() / 8)));
-   
+  applyTraining(heroName: string) {
 
-    const newHeroData = { ... this.heroes$.value };
-    newHeroData[heroName] = updatedHero;
+     
 
-    this.heroes$.next(newHeroData);
+    alert("Test "+JSON.stringify(this.announce));
+    
+    
   }
 
 }
