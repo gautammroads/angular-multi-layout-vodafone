@@ -14,85 +14,20 @@ import { ViewService } from './view.service';
 })
 
 export class AboutComponent  implements OnInit {
-  announce:Announce[];
-heroes$ = new BehaviorSubject<{[courseName: string]: any}>({
-    'Hammerer Maccabeus': {
-      courseName: 'Spring Boot',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-      venueName: 'Pune',
-       healing: 'Active',
-      recovery: 154
-      
-     
-    },
-    'Ethereal Moodmorph': {
-      courseName: 'Angular',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-      venueName: 'Pune',
-       healing: 'Active',
-      recovery: 178
-    
-    },
-    'Dwarf Bronnis': {
-      courseName: 'Node js',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-      healing: 'Active',
-      recovery: 153,
-     venueName: 'Pune'
-    },
-    'Lady Sabrina': {
-      courseName: 'Java',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-       healing: 'Active',
-      recovery: 105,
-     venueName: 'Pune'
-    },
-    'Techno Fox': {
-      courseName: 'Machine learning',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-       healing: 'Active',
-      recovery: 184,
-      venueName: 'Pune'
-    },
-    'Cleric Typh': {
-      courseName: 'Testing Tool',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-       healing: 'Active',
-      recovery: 272,
-      venueName: 'Pune'
-    },
-    'Technician Dustin': {
-      courseName: 'Aws',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-     healing: 'Active',
-      recovery: 144,
-      venueName: 'Pune'
-    },
-    'Dancer Galileo': {
-      courseName: 'Spring Data',
-      attack: '06/09/2017',
-      defense: '06/09/2017',
-      healing: 'Active',
-      recovery: 168,
-      venueName: 'Pune'
-    }
-  });
+  announce:Observable<Announce[]>;
+
+
   superlatives$ = new BehaviorSubject<{[superlativeName: string]: string}>({});
   tableDataSource$ = new BehaviorSubject<any[]>([]);
   displayedColumns$ = new BehaviorSubject<string[]>([
     'courseName',
-    'attack',
-    'defense',
+    'tStartDate',
+    'nDueDate',
     'venueName',
-    'healing',
+    'trainerName',
     'applyTraining'
+
+
     
   ]);
   currentPage$ = new BehaviorSubject<number>(1);
@@ -104,10 +39,11 @@ heroes$ = new BehaviorSubject<{[courseName: string]: any}>({
 
   constructor(private viewService:ViewService) { }
 
+
   ngOnInit() {
 
-   this.viewService.getTrainingDetails().subscribe(message => this.announce=message);
-   
+  this.announce=this.viewService.getTrainingDetails();
+ 
 
     combineLatest(this.tableDataSource$, this.currentPage$, this.pageSize$)
     .subscribe(([allSources, currentPage, pageSize]) => {
@@ -116,11 +52,11 @@ heroes$ = new BehaviorSubject<{[courseName: string]: any}>({
       this.dataOnPage$.next(onPage);
     });
 
-    this.heroes$.pipe(take(1)).subscribe(heroData => {
+    this.announce.pipe(take(1)).subscribe(heroData => {
       this.tableDataSource$.next(Object.values(heroData));
     });
 
-    combineLatest(this.heroes$, this.searchFormControl.valueChanges, this.sortKey$, this.sortDirection$)
+    combineLatest(this.announce, this.searchFormControl.valueChanges, this.sortKey$, this.sortDirection$)
     .subscribe(([changedHeroData, searchTerm, sortKey, sortDirection]) => {
       const heroesArray = Object.values(changedHeroData);
       let filteredHeroes: any[];
@@ -147,6 +83,8 @@ heroes$ = new BehaviorSubject<{[courseName: string]: any}>({
     });
 
     this.searchFormControl.setValue('');
+
+    
   }
 
   adjustSort(key: string) {
