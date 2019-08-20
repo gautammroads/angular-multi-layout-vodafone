@@ -6,10 +6,10 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  templateUrl: './trainee-approval.component.html',
+  styleUrls: ['./trainee-approval.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class TraineeApprovalComponent implements OnInit {
 heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
       name: 'Spring Boot',
