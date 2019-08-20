@@ -32,8 +32,8 @@ return this.http.get<Announce[]>(this.baseUrl+'/getAllActiveTrainings');
   }
 
 /** POST: add a new hero to the database */
-traineeNomination(announce: Announce): Observable<Announce> {
-    return this.http.post<Announce>(this.baseUrl+'/nomination', announce);
+traineeNomination(announce: Announce): Observable<any> {
+    return this.http.post<any>(this.baseUrl+'/nomination', announce);
 
 
   }

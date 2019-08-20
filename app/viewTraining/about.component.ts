@@ -99,13 +99,13 @@ export class AboutComponent  implements OnInit {
     this.sortDirection$.next('asc');
   }
 
-  applyTraining(heroName:Announce) {
+  applyTraining(announce:Announce) {
 
      
-
-    alert("Test "+JSON.stringify(heroName));
-    
-    
+this.viewService.traineeNomination(announce)
+      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
+   
+  
   }
 
 }
