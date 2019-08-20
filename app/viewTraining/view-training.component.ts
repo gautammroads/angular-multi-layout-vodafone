@@ -9,11 +9,11 @@ import { ViewService } from './view.service';
 
 @Component({
   selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  templateUrl: './view-training.component.html',
+  styleUrls: ['./view-training.component.css']
 })
 
-export class AboutComponent  implements OnInit {
+export class ViewTrainingComponent  implements OnInit {
   announce:Observable<Announce[]>;
 
 

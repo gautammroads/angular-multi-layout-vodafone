@@ -7,7 +7,7 @@ import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 
 import { TraineeComponent } from './trainee/trainee.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './viewTraining/about.component';
+import { ViewTrainingComponent } from './viewTraining/view-training.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component';
@@ -24,8 +24,8 @@ const appRoutes: Routes = [
         children: [
           { path: '', component: HomeComponent, pathMatch: 'full'},
           
-         { path: 'about', component: AboutComponent },
-          { path: 'test/:id', component: AboutComponent }
+         { path: 'about', component: ViewTrainingComponent },
+          { path: 'test/:id', component: ViewTrainingComponent }
         ]
     },
 
