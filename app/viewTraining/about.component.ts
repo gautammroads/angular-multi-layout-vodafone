@@ -27,8 +27,6 @@ export class AboutComponent  implements OnInit {
     'trainerName',
     'applyTraining'
 
-
-    
   ]);
   currentPage$ = new BehaviorSubject<number>(1);
   pageSize$ = new BehaviorSubject<number>(5);
@@ -101,13 +99,13 @@ export class AboutComponent  implements OnInit {
     this.sortDirection$.next('asc');
   }
 
-  applyTraining(heroName: string) {
+  applyTraining(announce:Announce) {
 
      
-
-    alert("Test "+JSON.stringify(this.announce));
-    
-    
+this.viewService.traineeNomination(announce)
+      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
+   
+  
   }
 
 }
