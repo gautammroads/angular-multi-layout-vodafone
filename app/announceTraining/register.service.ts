@@ -28,7 +28,7 @@ baseUrl='http://localhost:8082/OnPremPoc';
 
 
 /** POST: add a new hero to the database */
-  announceTraining(announce: C): Observable<Announce> {
+  announceTraining(announce: Announce): Observable<Announce> {
     return this.http.post<Announce>(this.baseUrl+'/postdata', announce);
 
 
