@@ -11,7 +11,7 @@ import { ViewTrainingComponent } from './viewTraining/view-training.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './traineeApproval/profile.component';
+import { TraineeApprovalComponent } from './traineeApproval/trainee-approval.component';
 import { RegisterComponent } from './announceTraining/register.component';
 
 
@@ -61,7 +61,7 @@ const appRoutes: Routes = [
         component: SiteLayoutComponent,
         children: [
          
-          { path: 'profile', component: ProfileComponent },
+          { path: 'profile', component: TraineeApprovalComponent},
         ]
     },
 
