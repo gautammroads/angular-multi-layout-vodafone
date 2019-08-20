@@ -22,7 +22,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { RegisterComponent } from './announceTraining/register.component';
 import { ProfileComponent } from './traineeApproval/profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { AboutComponent } from './viewTraining/about.component';
+import { ViewTrainingComponent } from './viewTraining/view-training.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -37,7 +37,7 @@ import { ViewService } from './viewTraining/view.service';
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
   providers: [ DataService, RegisterService, ViewService],
-  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent,TraineeComponent ],
+  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,ViewTrainingComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent,TraineeComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
