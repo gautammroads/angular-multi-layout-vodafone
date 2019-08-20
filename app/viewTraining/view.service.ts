@@ -31,6 +31,11 @@ baseUrl='http://localhost:8082/OnPremPoc';
 return this.http.get<Announce[]>(this.baseUrl+'/getAllActiveTrainings');
   }
 
+/** POST: add a new hero to the database */
+traineeNomination(announce: Announce): Observable<Announce> {
+    return this.http.post<Announce>(this.baseUrl+'/nomination', announce);
 
+
+  }
 
 }
