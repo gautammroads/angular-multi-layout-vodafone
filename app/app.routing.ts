@@ -8,6 +8,7 @@ import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 import { TraineeComponent } from './trainee/trainee.component';
 import { HomeComponent } from './home/home.component';
 import { ViewTrainingComponent } from './viewTraining/view-training.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component';
