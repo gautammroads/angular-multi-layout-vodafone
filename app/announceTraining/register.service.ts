@@ -35,13 +35,6 @@ baseUrl='http://localhost:8082/OnPremPoc';
   }
 
 
-    /** GET heroes from the server */
-
-  getHeroes (): Observable<Message> {
-    
-return this.http.get<Message>(this.baseUrl+'/get');
-  }
-
 
 
   getTrainingDetails (): Observable<Announce[]> {

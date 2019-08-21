@@ -43,6 +43,8 @@ export class ViewTrainingComponent  implements OnInit {
   this.announce=this.viewService.getTrainingDetails();
  
 
+ 
+
     combineLatest(this.tableDataSource$, this.currentPage$, this.pageSize$)
     .subscribe(([allSources, currentPage, pageSize]) => {
       const startingIndex = (currentPage - 1) * pageSize;
@@ -100,12 +102,13 @@ export class ViewTrainingComponent  implements OnInit {
   }
 
   applyTraining(announce:Announce) {
-
+ 
+ 
      
-this.viewService.traineeNomination(announce)
-      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
+//this.viewService.traineeNomination(announce)
+      //.subscribe(message =>  alert("Test "+JSON.stringify(message)));
    
-  
+  this.viewService.getNominationByManagerID().subscribe(message =>  alert("Test "+JSON.stringify(message)));;
   }
 
 }

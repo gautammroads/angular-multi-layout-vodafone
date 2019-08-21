@@ -33,10 +33,11 @@ import { routing } from './app.routing';
 import { DataService } from './data.service';
 import { RegisterService } from './announceTraining/register.service';
 import { ViewService } from './viewTraining/view.service';
+import { ApprovalService } from './traineeApproval/approval.service';
 
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
-  providers: [ DataService, RegisterService, ViewService],
+  providers: [ DataService, RegisterService, ViewService, ApprovalService],
   declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,ViewTrainingComponent, LoginComponent, HomeComponent,  RegisterComponent,TraineeApprovalComponent,DashboardComponent,TraineeComponent ],
   bootstrap:    [ AppComponent ]
 })

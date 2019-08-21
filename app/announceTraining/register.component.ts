@@ -33,10 +33,6 @@ constructor(private registerService:RegisterService ) { }
 
   }
 
- getHeroes(): void {
-    this.registerService.getHeroes()
-      .subscribe(message => this.message = message);
-  }
 
   postTraining(): void {
     this.registerService.announceTraining(JSON.parse(JSON.stringify(this.model)))
@@ -45,10 +41,8 @@ constructor(private registerService:RegisterService ) { }
   }
 
 announceTraining():void{
- //this.postTraining();
+ this.postTraining();
 
-this.registerService.getTrainingDetails().subscribe(message => this.announce=message);
- 
 
 }
   
