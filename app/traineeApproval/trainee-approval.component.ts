@@ -10,6 +10,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./trainee-approval.component.css']
 })
 export class TraineeApprovalComponent implements OnInit {
+
 heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
       name: 'Spring Boot',
@@ -117,6 +118,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   constructor() { }
 
   ngOnInit() {
+    this.viewService.getNominationByManagerID().subscribe(message =>  alert("Test "+JSON.stringify(message)));
     this.heroes$.subscribe(changedHeroData => {
       const superlatives = {
         'highest-defense': null,
