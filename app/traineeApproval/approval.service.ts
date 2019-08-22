@@ -18,11 +18,12 @@ const httpOptions = {
 
 @Injectable()
 export class ApprovalService {
+baseUrl='http://localhost:8082/OnPremPoc';
 
-  constructor() { }
+ constructor(private http: HttpClient) { }
 
 
-  getNominationByManagerID(): Observable<any> {
+getNominationByManagerID(): Observable<any> {
     
 return this.http.get<any>(this.baseUrl+'/getNomination');
   }
