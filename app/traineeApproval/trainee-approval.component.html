@@ -98,17 +98,17 @@ $(document).ready(function(){
        Action <span ></span>
     </th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="approveTrainee(row)">Apply</button>
+      <button class="btn btn-primary" (click)="approveTrainee(row)">Approve</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
  <!-- Level Up Column -->
   <ng-container cdkColumnDef="rejectTrainee">
     <th cdk-header-cell *cdkHeaderCellDef>
-       Action <span ></span>
+     
     </th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="rejectTrainee(row)">Apply</button>
+      <button class="btn btn-primary" (click)="rejectTrainee(row)">Reject</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
