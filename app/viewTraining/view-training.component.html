@@ -47,7 +47,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
     > 
-      {{row.tStartDate}} 
+      {{row.tStartDate | date: 'dd/MM/yyyy'}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -60,7 +60,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
         >
-      {{row.nDueDate}} 
+      {{row.nDueDate | date: 'dd/MM/yyyy'}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>

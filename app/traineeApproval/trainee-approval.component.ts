@@ -21,10 +21,11 @@ export class TraineeApprovalComponent implements OnInit {
   tableDataSource$ = new BehaviorSubject<any[]>([]);
   displayedColumns$ = new BehaviorSubject<string[]>([
     'courseName',
-    'tStartDate',
-    'nDueDate',
+    'traineeName',
     'venueName',
     'trainerName',
+    
+    'nDueDate',
     'approveTrainee',
     'rejectTrainee'
 

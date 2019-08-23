@@ -40,14 +40,14 @@ $(document).ready(function(){
   </ng-container>
 
   <!-- Hero Attack Column -->
-  <ng-container cdkColumnDef="tStartDate">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('tStartDate')">
-      Start Date <span *ngIf="sortKey$.value === 'tStartDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="traineeName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('traineeName')">
+     Trainee Name <span *ngIf="sortKey$.value === 'traineeName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
      </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
     > 
-      {{row.status}} 
+      {{row.user.name}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -60,7 +60,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
         >
-      {{row.status}} 
+      {{row.announceTraining.nDueDate | date: 'dd/MM/yyyy'}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -73,7 +73,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
         >
-  {{row.status}} 
+  {{row.announceTraining.venueName}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -81,12 +81,12 @@ $(document).ready(function(){
   <!-- Hero Healing Column -->
   <ng-container cdkColumnDef="trainerName">
     <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('trainerName')">
-      Status <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+      Trainer Name <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
        >
-    {{row.user.name}}
+    {{row.announceTraining.trainerName}}
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
