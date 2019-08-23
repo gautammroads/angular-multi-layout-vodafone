@@ -52,6 +52,32 @@ $(document).ready(function(){
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
+   <!-- Hero Attack Column -->
+  <ng-container cdkColumnDef="tEndDate">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('tEndDate')">
+      End Date <span *ngIf="sortKey$.value === 'tEndDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+     </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+    > 
+      {{row.tEndDate | date: 'dd/MM/yyyy'}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+   <!-- Hero Attack Column -->
+  <ng-container cdkColumnDef="courseDuration">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseDuration')">
+     Course Duration<span *ngIf="sortKey$.value === 'courseDuration'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+     </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+    > 
+      {{row.courseDuration }} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
   <!-- Hero Defense Column -->
   <ng-container cdkColumnDef="nDueDate">
     <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('nDueDate')">
@@ -81,7 +107,7 @@ $(document).ready(function(){
   <!-- Hero Healing Column -->
   <ng-container cdkColumnDef="trainerName">
     <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('trainerName')">
-      Status <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    Trainer Name <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell 
         *cdkCellDef="let row" 

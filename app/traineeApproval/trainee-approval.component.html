@@ -65,6 +65,18 @@ $(document).ready(function(){
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
+ <!-- Hero Defense Column -->
+  <ng-container cdkColumnDef="courseDuration">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseDuration')">
+      Course Duration <span *ngIf="sortKey$.value === 'courseDuration'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        >
+      {{row.announceTraining.courseDuration}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
   <!-- Hero Speed Column -->
   <ng-container cdkColumnDef="venueName">
     <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('venueName')">

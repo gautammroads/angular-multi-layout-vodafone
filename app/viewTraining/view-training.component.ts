@@ -22,6 +22,8 @@ export class ViewTrainingComponent  implements OnInit {
   displayedColumns$ = new BehaviorSubject<string[]>([
     'courseName',
     'tStartDate',
+    'tEndDate',
+    'courseDuration',
     'nDueDate',
     'venueName',
     'trainerName',

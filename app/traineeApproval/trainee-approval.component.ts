@@ -24,7 +24,7 @@ export class TraineeApprovalComponent implements OnInit {
     'traineeName',
     'venueName',
     'trainerName',
-    
+    'courseDuration',
     'nDueDate',
     'approveTrainee',
     'rejectTrainee'
