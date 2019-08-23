@@ -14,7 +14,7 @@ import { ViewService } from '../viewTraining/view.service';
   styleUrls: ['./trainee-approval.component.css']
 })
 export class TraineeApprovalComponent implements OnInit {
-  announce:Observable<Announce[]>;
+  announce:Observable<any[]>;
 
 
   superlatives$ = new BehaviorSubject<{[superlativeName: string]: string}>({});
@@ -36,15 +36,11 @@ export class TraineeApprovalComponent implements OnInit {
   sortKey$ = new BehaviorSubject<string>('courseName');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
-  constructor(private viewService:ViewService) { }
+  constructor(private approvalService:ApprovalService) { }
 
 
   ngOnInit() {
-
-  this.announce=this.viewService.getTrainingDetails();
- 
-
- 
+ this.announce=this.approvalService.getNominationByManagerID();
 
     combineLatest(this.tableDataSource$, this.currentPage$, this.pageSize$)
     .subscribe(([allSources, currentPage, pageSize]) => {

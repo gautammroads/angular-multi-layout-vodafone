@@ -35,7 +35,7 @@ $(document).ready(function(){
     <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseName')"> 
       Course Name <span *ngIf="sortKey$.value === 'courseName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
-    <td cdk-cell *cdkCellDef="let row"> {{row.courseName}} </td>
+    <td cdk-cell *cdkCellDef="let row"> {{row.announceTraining.courseName}} </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
@@ -47,7 +47,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
     > 
-      {{row.tStartDate}} 
+      {{row.status}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -60,7 +60,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
         >
-      {{row.nDueDate}} 
+      {{row.status}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -73,7 +73,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
         >
-  {{row.venueName}} 
+  {{row.status}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -86,7 +86,7 @@ $(document).ready(function(){
     <td cdk-cell 
         *cdkCellDef="let row" 
        >
-      {{row.trainerName}} 
+    {{row.user.name}}
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
