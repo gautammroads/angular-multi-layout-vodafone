@@ -6,13 +6,18 @@ import {HttpModule} from '@angular/http';
 
 
 
+
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { AppMaterialModules } from './material.module';
 import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 import { SiteLayoutComponent } from './_layout/site-layout/site-layout.component';
 import { AppHeaderComponent } from './_layout/app-header/app-header.component';
 import { SiteHeaderComponent } from './_layout/site-header/site-header.component';
 import { SiteFooterComponent } from './_layout/site-footer/site-footer.component';
+
+
+
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +31,9 @@ import { ViewTrainingComponent } from './viewTraining/view-training.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { InlineEditComponent } from './inline-edit/inline-edit.component';
+
+import { SatPopoverModule } from '@ncstate/sat-popover';
 
 
 import { routing } from './app.routing';
@@ -36,9 +44,10 @@ import { ViewService } from './viewTraining/view.service';
 import { ApprovalService } from './traineeApproval/approval.service';
 
 @NgModule({
-  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
+  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule,AppMaterialModules,
+    SatPopoverModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
   providers: [ DataService, RegisterService, ViewService, ApprovalService],
-  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,ViewTrainingComponent, LoginComponent, HomeComponent,  RegisterComponent,TraineeApprovalComponent,DashboardComponent,TraineeComponent ],
+  declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,ViewTrainingComponent, LoginComponent, HomeComponent,  RegisterComponent,TraineeApprovalComponent,DashboardComponent,TraineeComponent,InlineEditComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,0 +1,45 @@
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #e60001;
+    border-color: #e60001;
+}
+.table td, .table th {
+    padding: .25rem;
+    vertical-align: middle;
+    border-top: 1px solid #eceeef;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mat-row {
+  align-items: stretch;
+
+  .mat-cell {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.mat-column-symbol, .mat-column-name {
+  max-width: 160px;
+}
+
+.mat-cell.mat-column-comment {
+  cursor: pointer;
+}
+
+.add-comment {
+  opacity: 0.4;
+}
