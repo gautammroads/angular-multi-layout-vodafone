@@ -101,6 +101,11 @@ export class TraineeApprovalComponent implements OnInit {
     this.sortDirection$.next('asc');
   }
 
+
+  test():void{
+    
+  }
+
   approveTrainee(announce:any) {
  
  alert("Test "+JSON.stringify(announce));
