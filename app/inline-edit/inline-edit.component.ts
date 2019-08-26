@@ -3,7 +3,7 @@ import { SatPopover } from '@ncstate/sat-popover';
 import { filter } from 'rxjs/operators/filter';
 
 @Component({
-  selector: 'app-inline-edit',
+  selector: 'inline-edit',
   templateUrl: './inline-edit.component.html',
   styleUrls: ['./inline-edit.component.scss']
 })
