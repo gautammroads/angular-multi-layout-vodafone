@@ -8,10 +8,11 @@ import { FormControl } from '@angular/forms';
 import { ApprovalService } from './approval.service';
 import { ViewService } from '../viewTraining/view.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './trainee-approval.component.html',
-  styleUrls: ['./trainee-approval.component.css']
+  styleUrls: ['./trainee-approval.component.scss']
 })
 export class TraineeApprovalComponent implements OnInit {
   announce:Observable<any[]>;
@@ -28,6 +29,7 @@ export class TraineeApprovalComponent implements OnInit {
     'nDueDate',
     'approveTrainee',
     'rejectTrainee'
+    
 
   ]);
   currentPage$ = new BehaviorSubject<number>(1);

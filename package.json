@@ -20,7 +20,12 @@
     "rxjs": "6.2.1",
      "@ng-bootstrap/ng-bootstrap": "2.2.0",
     "rxjs-compat": "^6.5.2",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "hammerjs": "2.0.8",
+    "@angular/material": "6.4.1",
+    "web-animations-js": "2.3.1",
+    "@angular/animations": "6.0.9",
+    "@ncstate/sat-popover": "2.1.1"
   },
   "scripts": {
     "ng": "ng",

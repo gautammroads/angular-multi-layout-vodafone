@@ -115,15 +115,40 @@ $(document).ready(function(){
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
  <!-- Level Up Column -->
+
+
   <ng-container cdkColumnDef="rejectTrainee">
     <th cdk-header-cell *cdkHeaderCellDef>
      
     </th>
-    <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="rejectTrainee(row)">Reject</button>
+    <td cdk-cell *cdkCellDef="let row" [satPopoverAnchorFor]="p" (click)="p.open()">
+     
+ <ng-container *ngIf="row.user.name">
+            {{row.user.name}}
+          </ng-container>
+          <span class="add-comment" *ngIf="!row.user.name">
+            Add a comment
+          </span>
+
+          <sat-popover #p
+              hasBackdrop
+              xAlign="start"
+              yAlign="start"
+             >
+            <inline-edit [value]="row.user.name"></inline-edit>
+        </sat-popover>
+       
+      
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
+
+
+
+
+
+  
+
 
 
   <!-- Header and Row Declarations -->
