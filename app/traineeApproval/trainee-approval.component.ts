@@ -21,10 +21,11 @@ export class TraineeApprovalComponent implements OnInit {
   tableDataSource$ = new BehaviorSubject<any[]>([]);
   displayedColumns$ = new BehaviorSubject<string[]>([
     'courseName',
-    'tStartDate',
-    'nDueDate',
+    'traineeName',
     'venueName',
     'trainerName',
+    'courseDuration',
+    'nDueDate',
     'approveTrainee',
     'rejectTrainee'
 
@@ -98,9 +99,9 @@ export class TraineeApprovalComponent implements OnInit {
     this.sortDirection$.next('asc');
   }
 
-  approveTrainee(announce:Announce) {
+  approveTrainee(announce:any) {
  
- 
+ alert("Test "+JSON.stringify(announce));
      
 //this.viewService.traineeNomination(announce)
       //.subscribe(message =>  alert("Test "+JSON.stringify(message)));
@@ -108,9 +109,9 @@ export class TraineeApprovalComponent implements OnInit {
   
   }
 
-    rejectTrainee(announce:Announce) {
+    rejectTrainee(announce:any) {
  
- 
+ alert("Test "+JSON.stringify(announce));
      
 //this.viewService.traineeNomination(announce)
       //.subscribe(message =>  alert("Test "+JSON.stringify(message)));

@@ -28,4 +28,13 @@ getNominationByManagerID(): Observable<any> {
 return this.http.get<any>(this.baseUrl+'/getNomination');
   }
 
+approveTraining(userNomination:any): Observable<any> {
+    
+return this.http.put<any>(this.baseUrl+'/approveTraining',userNomination);
+  }
+
+rejectTraining(userNomination:any): Observable<any> {
+    
+return this.http.put<any>(this.baseUrl+'/rejectTraining',userNomination);
+  }
 }
