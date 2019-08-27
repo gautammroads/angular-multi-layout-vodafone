@@ -103,25 +103,20 @@ export class TraineeApprovalComponent implements OnInit {
 
 
   test():void{
-    
+
   }
 
-  approveTrainee(announce:any) {
+  approveTrainee(userNomimation:any) {
  
- alert("Test "+JSON.stringify(announce));
-     
-//this.viewService.traineeNomination(announce)
-      //.subscribe(message =>  alert("Test "+JSON.stringify(message)));
+     this.approvalService.approveTraining(userNomimation)
+      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
+
+  }
+ rejectTrainee(userNomimation:any) {
+ 
+ this.approvalService.rejectTraining(userNomimation)
+      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
    
-  
-  }
-
-    rejectTrainee(announce:any) {
- 
- alert("Test "+JSON.stringify(announce));
-     
-//this.viewService.traineeNomination(announce)
-      //.subscribe(message =>  alert("Test "+JSON.stringify(message)));
    
   
   }

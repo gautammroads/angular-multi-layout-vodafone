@@ -32,6 +32,8 @@ export class InlineEditComponent {
 
   onSubmit() {
     if (this.popover) {
+
+      alert("comment"+this.comment);
       this.popover.close(this.comment);
     }
   }
