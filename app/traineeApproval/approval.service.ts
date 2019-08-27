@@ -30,11 +30,11 @@ return this.http.get<any>(this.baseUrl+'/getNomination');
 
 approveTraining(userNomination:any): Observable<any> {
     
-return this.http.put<any>(this.baseUrl+'/approveTraining',userNomination);
+return this.http.post<any>(this.baseUrl+'/approveTraining',userNomination);
   }
 
 rejectTraining(userNomination:any): Observable<any> {
     
-return this.http.put<any>(this.baseUrl+'/rejectTraining',userNomination);
+return this.http.post<any>(this.baseUrl+'/rejectTraining',userNomination);
   }
 }
