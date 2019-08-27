@@ -120,13 +120,14 @@ $(document).ready(function(){
      
     </th>
     <td cdk-cell *cdkCellDef="let row" >
-      <button class="btn btn-primary" [satPopoverAnchorFor]="p" (click)="[p.open(),rejectTrainee(row)]">Reject</button>
+      <button class="btn btn-primary" [satPopoverAnchorFor]="p" (click)="p.open()">Reject</button>
           <sat-popover #p
               hasBackdrop
               xAlign="start"
               yAlign="start"
               [close]="test()"
              >
+
             <inline-edit [value]="row.user.name"></inline-edit>
         </sat-popover>
        
