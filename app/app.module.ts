@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -44,10 +44,13 @@ import { ViewService } from './viewTraining/view.service';
 import { ApprovalService } from './traineeApproval/approval.service';
 
 @NgModule({
-  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule,AppMaterialModules,
+  imports:      [ BrowserModule,BrowserAnimationsModule, ReactiveFormsModule,FormsModule,AppMaterialModules,
     SatPopoverModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
   providers: [ DataService, RegisterService, ViewService, ApprovalService],
   declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,ViewTrainingComponent, LoginComponent, HomeComponent,  RegisterComponent,TraineeApprovalComponent,DashboardComponent,TraineeComponent,InlineEditComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+],
 })
 export class AppModule { }

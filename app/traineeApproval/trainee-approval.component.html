@@ -121,19 +121,13 @@ $(document).ready(function(){
     <th cdk-header-cell *cdkHeaderCellDef>
      
     </th>
-    <td cdk-cell *cdkCellDef="let row" [satPopoverAnchorFor]="p" (click)="p.open()">
-     
- <ng-container *ngIf="row.user.name">
-            {{row.user.name}}
-          </ng-container>
-          <span class="add-comment" *ngIf="!row.user.name">
-            Add a comment
-          </span>
-
+    <td cdk-cell *cdkCellDef="let row" >
+      <button class="btn btn-primary" [satPopoverAnchorFor]="p" (click)="[p.open(),rejectTrainee(row)]">Reject</button>
           <sat-popover #p
               hasBackdrop
               xAlign="start"
               yAlign="start"
+              [close]="test()"
              >
             <inline-edit [value]="row.user.name"></inline-edit>
         </sat-popover>
