@@ -31,86 +31,88 @@ $(document).ready(function(){
 <table cdk-table [dataSource]="dataOnPage$" class="table table-hover">
   
   <!-- Hero Name Column -->
-  <ng-container cdkColumnDef="name">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('name')"> 
-      Course Name <span *ngIf="sortKey$.value === 'name'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="courseName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseName')"> 
+      Course Name <span *ngIf="sortKey$.value === 'courseName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
-    <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
+    <td cdk-cell *cdkCellDef="let row"> {{row.courseName}} </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
   <!-- Hero Attack Column -->
-  <ng-container cdkColumnDef="attack">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('attack')">
-      Start Date <span *ngIf="sortKey$.value === 'attack'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="tStartDate">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('tStartDate')">
+      Start Date <span *ngIf="sortKey$.value === 'tStartDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
      </th>
     <td cdk-cell 
-        *cdkCellDef="let row" >
-      {{row.attack}} 
+        *cdkCellDef="let row" 
+    > 
+      {{row.tStartDate | date: 'dd/MM/yyyy'}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+   <!-- Hero Attack Column -->
+  <ng-container cdkColumnDef="tEndDate">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('tEndDate')">
+      End Date <span *ngIf="sortKey$.value === 'tEndDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+     </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+    > 
+      {{row.tEndDate | date: 'dd/MM/yyyy'}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+   <!-- Hero Attack Column -->
+  <ng-container cdkColumnDef="courseDuration">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseDuration')">
+     Course Duration<span *ngIf="sortKey$.value === 'courseDuration'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+     </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+    > 
+      {{row.courseDuration }} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
   <!-- Hero Defense Column -->
-  <ng-container cdkColumnDef="defense">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('defense')">
-      Due Date <span *ngIf="sortKey$.value === 'defense'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="nDueDate">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('nDueDate')">
+      Due Date <span *ngIf="sortKey$.value === 'nDueDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
-        [ngClass]="{ 
-                     'table-success': superlatives$.value['highest-defense'] === row.name,
-                     'table-danger': superlatives$.value['lowest-defense'] === row.name
-                   }">
-      {{row.defense}} 
+        >
+      {{row.nDueDate | date: 'dd/MM/yyyy'}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
   <!-- Hero Speed Column -->
-  <ng-container cdkColumnDef="speed">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('speed')">
-      Venue <span *ngIf="sortKey$.value === 'speed'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="venueName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('venueName')">
+      Venue <span *ngIf="sortKey$.value === 'venueName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
-        [ngClass]="{ 
-                 'table-success': superlatives$.value['highest-speed'] === row.name,
-                 'table-danger': superlatives$.value['lowest-speed'] === row.name
-               }">
-  {{row.speed}} 
+        >
+  {{row.venueName}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
 
   <!-- Hero Healing Column -->
-  <ng-container cdkColumnDef="healing">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('healing')">
-      Status <span *ngIf="sortKey$.value === 'healing'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+  <ng-container cdkColumnDef="trainerName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('trainerName')">
+    Trainer Name <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell 
         *cdkCellDef="let row" 
-        [ngClass]="{ 
-                     'table-success': superlatives$.value['highest-healing'] === row.name,
-                     'table-danger': superlatives$.value['lowest-healing'] === row.name
-                   }">
-      {{row.healing}} 
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
-  <!-- Hero Recovery Column -->
-  <ng-container cdkColumnDef="recovery">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('recovery')">
-      Recovery <span *ngIf="sortKey$.value === 'recovery'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-    </th>
-    <td cdk-cell 
-        *cdkCellDef="let row" 
-        [ngClass]="{ 
-                     'table-success': superlatives$.value['highest-recovery'] === row.name,
-                     'table-danger': superlatives$.value['lowest-recovery'] === row.name
-                   }">
-      {{row.recovery}} 
+       >
+      {{row.trainerName}} 
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -118,12 +120,12 @@ $(document).ready(function(){
  
 
   <!-- Level Up Column -->
-  <ng-container cdkColumnDef="levelUp">
+  <ng-container cdkColumnDef="viewTraining">
     <th cdk-header-cell *cdkHeaderCellDef>
        Action <span ></span>
     </th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="levelUp(row.name)">View</button>
+      <button class="btn btn-primary" (click)="viewTraining(row.id)">View</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -149,7 +151,7 @@ $(document).ready(function(){
               <button 
                 class="btn btn-outline-secondary"
                 (click)="searchFormControl.setValue('')">
-                
+                x
               </button>
             </div>
         </div>
