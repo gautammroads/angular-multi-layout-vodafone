@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 
 import { BehaviorSubject, combineLatest ,Observable} from 'rxjs';
@@ -13,7 +15,7 @@ import { FormControl } from '@angular/forms';
 })
 export class TraineeComponent implements OnInit {
   selectedId: Observable<string>;
-  id: number;
+  id: string;
 
  constructor(private route: ActivatedRoute) {}
 
@@ -21,7 +23,8 @@ export class TraineeComponent implements OnInit {
 this.route.queryParams.subscribe(
       params => {
         console.log('Got the JWT as: ', params['id']);
-        this.id =  params['id'];
+       // params['id'].subscribe(trest=>alert(JSON.stringify(trest)));
+        alert(" this.id"+ params['id']);
       }
     )
   }
