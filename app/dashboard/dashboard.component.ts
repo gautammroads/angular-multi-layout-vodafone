@@ -15,7 +15,7 @@ import { FormControl } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
   announce:Observable<Announce[]>;
-
+ids:string;
 
   superlatives$ = new BehaviorSubject<{[superlativeName: string]: string}>({});
   tableDataSource$ = new BehaviorSubject<any[]>([]);
@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
   this.announce=this.viewService.getTrainingDetails();
- 
+  
 
  
 
@@ -104,8 +104,11 @@ export class DashboardComponent implements OnInit {
   }
 
 
+
   viewTraining(annouceId: number) {
-     this.router.navigate( ['/view'], { queryParams: { id: annouceId}});
+   this.announce.subscribe(ss=>this.ids=JSON.stringify(ss));
+   alert(this.ids);
+     this.router.navigate( ['/view'], { queryParams: { id:this.ids}});
  // this.router.navigateByUrl('/view');
   }
 
