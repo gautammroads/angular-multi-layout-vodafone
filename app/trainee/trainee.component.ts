@@ -46,9 +46,7 @@ announce:Observable<any[]>;
   ngOnInit() {
  this.route.queryParams.subscribe(
        params => {
-//         console.log('Got the JWT as: ', params['id']);
-//        // params['id'].subscribe(trest=>alert(JSON.stringify(trest)));
-       // alert(" this.id"+ params['id']);
+
 this.id= params['id'];
       }
      )
