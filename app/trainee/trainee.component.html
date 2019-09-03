@@ -1,1 +1,147 @@
-test
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".btn-group .btn").click(function(){
+		var inputValue = $(this).find("input").val();
+		if(inputValue != 'all'){
+			var target = $('table tr[data-status="' + inputValue + '"]');
+			$("table tbody tr").not(target).hide();
+			target.fadeIn();
+		} else {
+			$("table tbody tr").fadeIn();
+		}
+	});
+	// Changing the class of status label to support Bootstrap 4
+    var bs = $.fn.tooltip.Constructor.VERSION;
+    var str = bs.split(".");
+    if(str[0] == 4){
+        $(".label").each(function(){
+        	var classStr = $(this).attr("class");
+            var newClassStr = classStr.replace(/label/g, "badge");
+            $(this).removeAttr("class").addClass(newClassStr);
+        });
+    }
+});
+</script>
+
+
+
+
+<table cdk-table [dataSource]="dataOnPage$" class="table table-hover">
+  
+  <!-- Hero Name Column -->
+  <ng-container cdkColumnDef="courseName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseName')"> 
+      Course Name <span *ngIf="sortKey$.value === 'courseName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.announceTraining.courseName}} </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Attack Column -->
+  <ng-container cdkColumnDef="traineeName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('traineeName')">
+     Trainee Name <span *ngIf="sortKey$.value === 'traineeName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+     </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+    > 
+      {{row.user.name}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Defense Column -->
+  <ng-container cdkColumnDef="nDueDate">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('nDueDate')">
+      Due Date <span *ngIf="sortKey$.value === 'nDueDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        >
+      {{row.announceTraining.nDueDate | date: 'dd/MM/yyyy'}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+ <!-- Hero Defense Column -->
+  <ng-container cdkColumnDef="courseDuration">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseDuration')">
+      Course Duration <span *ngIf="sortKey$.value === 'courseDuration'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        >
+      {{row.announceTraining.courseDuration}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+  <!-- Hero Speed Column -->
+  <ng-container cdkColumnDef="venueName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('venueName')">
+      Venue <span *ngIf="sortKey$.value === 'venueName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+        >
+  {{row.announceTraining.venueName}} 
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+  <!-- Hero Healing Column -->
+  <ng-container cdkColumnDef="trainerName">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('trainerName')">
+      Trainer Name <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell 
+        *cdkCellDef="let row" 
+       >
+    {{row.announceTraining.trainerName}}
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
+
+ 
+
+ 
+
+  <!-- Header and Row Declarations -->
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
+
+</table>
+
+<div class="row">
+  <div class="col-6">
+    <div class="form-inline">
+      <div class="form-group">
+        <div class="input-group mr-3">
+            <input 
+              type="text" 
+              class="form-control"
+              placeholder="Search..."
+              [formControl]="searchFormControl">
+            <div class="input-group-append">
+              <button 
+                class="btn btn-outline-secondary"
+                (click)="searchFormControl.setValue('')">
+                x
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="float-right">
+      <ngb-pagination 
+        [collectionSize]="tableDataSource$.value.length" 
+        [pageSize]="pageSize$.value"
+        [page]="currentPage$.value"
+        (pageChange)="currentPage$.next($event)">
+      </ngb-pagination>
+    </div>
+  </div>
+</div>
