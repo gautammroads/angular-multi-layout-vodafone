@@ -16,10 +16,8 @@ import { ViewService } from '../viewTraining/view.service';
 })
 export class TraineeComponent implements OnInit {
 
-  selectedId: Observable<string>;
-  id: string;
 
-
+id:number;
 announce:Observable<any[]>;
 
 
@@ -31,9 +29,8 @@ announce:Observable<any[]>;
     'venueName',
     'trainerName',
     'courseDuration',
-    'nDueDate',
-    'approveTrainee',
-    'rejectTrainee'
+    'nDueDate'
+    
     
 
   ]);
@@ -44,19 +41,21 @@ announce:Observable<any[]>;
   sortKey$ = new BehaviorSubject<string>('courseName');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
- constructor(private route: ActivatedRoute,private approvalService:ViewService) {}
+ constructor(private route: ActivatedRoute,private viewService:ViewService) {}
 
   ngOnInit() {
-// this.route.queryParams.subscribe(
-//       params => {
+ this.route.queryParams.subscribe(
+       params => {
 //         console.log('Got the JWT as: ', params['id']);
 //        // params['id'].subscribe(trest=>alert(JSON.stringify(trest)));
-//         alert(" this.id"+ params['id']);
-//       }
-//     )
+       // alert(" this.id"+ params['id']);
+this.id= params['id'];
+      }
+     )
+
+this.announce=this.viewService.getNominationByManagerID(this.id);
 
 
-this.announce=this.approvalService.getNominationByManagerID();
 
     combineLatest(this.tableDataSource$, this.currentPage$, this.pageSize$)
     .subscribe(([allSources, currentPage, pageSize]) => {
@@ -97,10 +96,10 @@ this.announce=this.approvalService.getNominationByManagerID();
 
     this.searchFormControl.setValue('');
 
-
-
+    
   }
-   adjustSort(key: string) {
+
+  adjustSort(key: string) {
     if (this.sortKey$.value === key) {
       if (this.sortDirection$.value === 'asc') {
         this.sortDirection$.next('desc');

@@ -106,10 +106,10 @@ ids:string;
 
 
   viewTraining(annouceId: number) {
-   this.announce.subscribe(ss=>this.ids=JSON.stringify(ss));
+   //this.announce.subscribe(ss=>this.ids=JSON.stringify(ss));
    //alert(this.ids);
-     //this.router.navigate( ['/view'], { queryParams: { id:this.ids}});
- this.router.navigateByUrl('/view');
+     this.router.navigate( ['/view'], { queryParams: { id:annouceId}});
+ //this.router.navigateByUrl('/view');
   }
 
 }

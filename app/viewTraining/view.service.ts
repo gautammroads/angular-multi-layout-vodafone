@@ -39,9 +39,9 @@ traineeNomination(announce: Announce): Observable<any> {
   }
 
   
-  getNominationByManagerID(): Observable<any> {
+  getNominationByManagerID(id:number): Observable<any> {
     
-return this.http.get<any>(this.baseUrl+'/getNomination');
+return this.http.get<any>(this.baseUrl+'/getTraineeListBytrainingId/'+id);
   }
 
 }
