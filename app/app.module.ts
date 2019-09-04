@@ -37,6 +37,7 @@ import { SatPopoverModule } from '@ncstate/sat-popover';
 
 
 import { routing } from './app.routing';
+import { ExcelService } from './trainee/excel.Service';
 
 import { DataService } from './data.service';
 import { RegisterService } from './announceTraining/register.service';
@@ -46,7 +47,7 @@ import { ApprovalService } from './traineeApproval/approval.service';
 @NgModule({
   imports:      [ BrowserModule,BrowserAnimationsModule, ReactiveFormsModule,FormsModule,AppMaterialModules,
     SatPopoverModule, routing,HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
-  providers: [ DataService, RegisterService, ViewService, ApprovalService],
+  providers: [ DataService, RegisterService, ViewService, ApprovalService,ExcelService],
   declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,ViewTrainingComponent, LoginComponent, HomeComponent,  RegisterComponent,TraineeApprovalComponent,DashboardComponent,TraineeComponent,InlineEditComponent ],
   bootstrap:    [ AppComponent ],
   schemas: [

@@ -7,6 +7,7 @@ import { take ,switchMap} from 'rxjs/operators';
 import { Router ,ActivatedRoute} from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { ViewService } from '../viewTraining/view.service';
+import { ExcelService } from './excel.Service';
 
 
 @Component({
@@ -29,7 +30,8 @@ announce:Observable<any[]>;
     'venueName',
     'trainerName',
     'courseDuration',
-    'nDueDate'
+    'nDueDate',
+    'exportTrainee'
     
     
 
@@ -41,7 +43,9 @@ announce:Observable<any[]>;
   sortKey$ = new BehaviorSubject<string>('courseName');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
- constructor(private route: ActivatedRoute,private viewService:ViewService) {}
+ constructor(private route: ActivatedRoute,private viewService:ViewService,private excelService:ExcelService) {}
+
+ 
 
   ngOnInit() {
  this.route.queryParams.subscribe(
@@ -111,4 +115,8 @@ this.announce=this.viewService.getNominationByManagerID(this.id);
     this.sortDirection$.next('asc');
   }
 
+exportTrainee(json:any[]){
+ this.excelService.exportAsExcelFile(json, 'sample');
+
+}
 }
