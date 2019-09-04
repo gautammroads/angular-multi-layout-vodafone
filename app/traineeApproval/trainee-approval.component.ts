@@ -15,7 +15,7 @@ import { ViewService } from '../viewTraining/view.service';
   styleUrls: ['./trainee-approval.component.scss']
 })
 export class TraineeApprovalComponent implements OnInit {
-  announce:Observable<any[]>;
+  announce?:Observable<any[]>;
 
 
   superlatives$ = new BehaviorSubject<{[superlativeName: string]: string}>({});
