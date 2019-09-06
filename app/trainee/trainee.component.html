@@ -106,6 +106,16 @@ $(document).ready(function(){
  
 
   
+  <!-- Level Up Column -->
+  <ng-container cdkColumnDef="exportTrainee">
+    <th cdk-header-cell *cdkHeaderCellDef>
+       Action <span ></span>
+    </th>
+    <td cdk-cell *cdkCellDef="let row">
+      <button class="btn btn-primary" (click)="exportTrainee(row)">Export</button>
+    </td>
+    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+  </ng-container>
 
   <!-- Header and Row Declarations -->
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
