@@ -7,7 +7,8 @@ import { take ,switchMap} from 'rxjs/operators';
 import { Router ,ActivatedRoute} from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { ViewService } from '../viewTraining/view.service';
-import { ExcelService } from './excel.Service';
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
+
 
 
 @Component({
@@ -19,7 +20,9 @@ export class TraineeComponent implements OnInit {
 
 
 id:number;
-announce:Observable<any[]>;
+announce?:Observable<any[]>;
+data:any[]
+  group = {};
 
 
   superlatives$ = new BehaviorSubject<{[superlativeName: string]: string}>({});
@@ -43,7 +46,7 @@ announce:Observable<any[]>;
   sortKey$ = new BehaviorSubject<string>('courseName');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
- constructor(private route: ActivatedRoute,private viewService:ViewService,private excelService:ExcelService) {}
+ constructor(private route: ActivatedRoute,private viewService:ViewService) {}
 
  
 
@@ -115,8 +118,32 @@ this.announce=this.viewService.getNominationByManagerID(this.id);
     this.sortDirection$.next('asc');
   }
 
-exportTrainee(json:any[]){
- this.excelService.exportAsExcelFile(json, 'sample');
+
+ 
+
+exportTrainee(){
+alert(JSON.stringify(json));
+const options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: true,
+      useBom: true,
+      headers: ['CouseName', 'TraineeName', 'Venue']
+    };
+   let resut=[]
+   let group = {CouseName: String,TraineeName: String,Venue: String};
+   this.announce.subscribe(data=>)
+
+    group.CouseName=json.announceTraining.courseName;
+    group.TraineeName=json.user.name;
+    
+    group.Venue=json.announceTraining.venueName;
+
+resut.push(group);
+   new Angular2Csv(resut, 'My Report', options);
+ 
 
 }
 }
