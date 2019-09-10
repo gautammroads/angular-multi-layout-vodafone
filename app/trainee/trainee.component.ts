@@ -2,12 +2,13 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { BehaviorSubject, combineLatest ,Observable} from 'rxjs';
-import { take ,switchMap} from 'rxjs/operators';
-import { Router ,ActivatedRoute} from '@angular/router';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { take, switchMap } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { ViewService } from '../viewTraining/view.service';
-import { ExcelService } from './excel.Service';
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
+
 
 
 @Component({
@@ -18,11 +19,13 @@ import { ExcelService } from './excel.Service';
 export class TraineeComponent implements OnInit {
 
 
-id:number;
-announce:Observable<any[]>;
+  id: number;
+  announce?: Observable<any[]>;
+  data: any[]
+  group = {};
 
 
-  superlatives$ = new BehaviorSubject<{[superlativeName: string]: string}>({});
+  superlatives$ = new BehaviorSubject<{ [superlativeName: string]: string }>({});
   tableDataSource$ = new BehaviorSubject<any[]>([]);
   displayedColumns$ = new BehaviorSubject<string[]>([
     'courseName',
@@ -32,8 +35,8 @@ announce:Observable<any[]>;
     'courseDuration',
     'nDueDate',
     'exportTrainee'
-    
-    
+
+
 
   ]);
   currentPage$ = new BehaviorSubject<number>(1);
@@ -43,62 +46,62 @@ announce:Observable<any[]>;
   sortKey$ = new BehaviorSubject<string>('courseName');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
- constructor(private route: ActivatedRoute,private viewService:ViewService,private excelService:ExcelService) {}
+  constructor(private route: ActivatedRoute, private viewService: ViewService) { }
 
- 
+
 
   ngOnInit() {
- this.route.queryParams.subscribe(
-       params => {
+    this.route.queryParams.subscribe(
+      params => {
 
-this.id= params['id'];
+        this.id = params['id'];
       }
-     )
+    )
 
-this.announce=this.viewService.getNominationByManagerID(this.id);
+    this.announce = this.viewService.getNominationByTrainingId(this.id);
 
 
 
     combineLatest(this.tableDataSource$, this.currentPage$, this.pageSize$)
-    .subscribe(([allSources, currentPage, pageSize]) => {
-      const startingIndex = (currentPage - 1) * pageSize;
-      const onPage = allSources.slice(startingIndex, startingIndex + pageSize);
-      this.dataOnPage$.next(onPage);
-    });
+      .subscribe(([allSources, currentPage, pageSize]) => {
+        const startingIndex = (currentPage - 1) * pageSize;
+        const onPage = allSources.slice(startingIndex, startingIndex + pageSize);
+        this.dataOnPage$.next(onPage);
+      });
 
     this.announce.pipe(take(1)).subscribe(heroData => {
       this.tableDataSource$.next(Object.values(heroData));
     });
 
     combineLatest(this.announce, this.searchFormControl.valueChanges, this.sortKey$, this.sortDirection$)
-    .subscribe(([changedHeroData, searchTerm, sortKey, sortDirection]) => {
-      const heroesArray = Object.values(changedHeroData);
-      let filteredHeroes: any[];
+      .subscribe(([changedHeroData, searchTerm, sortKey, sortDirection]) => {
+        const heroesArray = Object.values(changedHeroData);
+        let filteredHeroes: any[];
 
-      if (!searchTerm) {
-        filteredHeroes = heroesArray;
-      } else {
-        const filteredResults = heroesArray.filter(hero => {
-          return Object.values(hero)
-            .reduce((prev, curr) => {
-              return prev || curr.toString().toLowerCase().includes(searchTerm.toLowerCase());
-            }, false);
+        if (!searchTerm) {
+          filteredHeroes = heroesArray;
+        } else {
+          const filteredResults = heroesArray.filter(hero => {
+            return Object.values(hero)
+              .reduce((prev, curr) => {
+                return prev || curr.toString().toLowerCase().includes(searchTerm.toLowerCase());
+              }, false);
+          });
+          filteredHeroes = filteredResults;
+        }
+
+        const sortedHeroes = filteredHeroes.sort((a, b) => {
+          if (a[sortKey] > b[sortKey]) return sortDirection === 'asc' ? 1 : -1;
+          if (a[sortKey] < b[sortKey]) return sortDirection === 'asc' ? -1 : 1;
+          return 0;
         });
-        filteredHeroes = filteredResults;
-      }
 
-      const sortedHeroes = filteredHeroes.sort((a, b) => {
-        if(a[sortKey] > b[sortKey]) return sortDirection === 'asc' ? 1 : -1;
-        if(a[sortKey] < b[sortKey]) return sortDirection === 'asc' ? -1 : 1;
-        return 0;
+        this.tableDataSource$.next(sortedHeroes);
       });
-
-      this.tableDataSource$.next(sortedHeroes);
-    });
 
     this.searchFormControl.setValue('');
 
-    
+
   }
 
   adjustSort(key: string) {
@@ -115,8 +118,33 @@ this.announce=this.viewService.getNominationByManagerID(this.id);
     this.sortDirection$.next('asc');
   }
 
-exportTrainee(json:any[]){
- this.excelService.exportAsExcelFile(json, 'sample');
 
-}
+  result: any;
+
+  async exportTrainee(id: number) {
+
+var options = {
+        fieldSeparator: ',',
+        quoteStrings: '"',
+        decimalseparator: '.',
+        showLabels: true,
+        showTitle: true,
+        useBom: true,
+        headers: ['Couse Name', 'Venue Name', 'Trainer Name','Trainee Name']
+      };
+
+    this.viewService.exportCsvNominationByeTrainingID(id).subscribe(data => {
+      this.result=data;
+     new Angular2Csv(this.result, 'My Report', options)
+    }
+  );
+  }
+    
+  
+
+
+
+
+
+
 }

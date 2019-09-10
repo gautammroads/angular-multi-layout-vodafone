@@ -6,6 +6,11 @@ import { catchError } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 import { Announce } from '../announceTraining/announce';
 
+import {saveAs}  from 'file-saver';
+import * as XLSX from 'xlsx';
+
+const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+const EXCEL_EXTENSION = '.xlsx';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -35,13 +40,19 @@ return this.http.get<Announce[]>(this.baseUrl+'/getAllActiveTrainings');
 traineeNomination(announce: Announce): Observable<any> {
     return this.http.post<any>(this.baseUrl+'/nomination', announce);
 
-
   }
 
-  
-  getNominationByManagerID(id:number): Observable<any> {
-    
+  getNominationByTrainingId(id:number): Observable<any> {
+
 return this.http.get<any>(this.baseUrl+'/getTraineeListBytrainingId/'+id);
   }
+
+  exportCsvNominationByeTrainingID(id:number) {
+   
+return this.http.get(this.baseUrl+'/getTraineeListByExportById/'+id);
+  }
+
+
+
 
 }

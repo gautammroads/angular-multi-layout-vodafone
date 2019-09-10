@@ -87,6 +87,7 @@ export class TraineeApprovalComponent implements OnInit {
     
   }
 
+
   adjustSort(key: string) {
     if (this.sortKey$.value === key) {
       if (this.sortDirection$.value === 'asc') {
@@ -110,7 +111,8 @@ export class TraineeApprovalComponent implements OnInit {
  
      this.approvalService.approveTraining(userNomimation)
       .subscribe(message =>  alert("Test "+JSON.stringify(message)));
-
+  
+  
   }
  rejectTrainee(userNomimation:any) {
  
