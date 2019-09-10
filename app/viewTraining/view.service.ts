@@ -40,50 +40,19 @@ return this.http.get<Announce[]>(this.baseUrl+'/getAllActiveTrainings');
 traineeNomination(announce: Announce): Observable<any> {
     return this.http.post<any>(this.baseUrl+'/nomination', announce);
 
-
   }
 
-  
-  getNominationByManagerID(id:number): Observable<any> {
-    
+  getNominationByTrainingId(id:number): Observable<any> {
 
 return this.http.get<any>(this.baseUrl+'/getTraineeListBytrainingId/'+id);
   }
 
-
-
-
-
-
-downloadFile(data: any) {
+  exportCsvNominationByeTrainingID(id:number) {
    
-   alert(JSON.stringify(json));
-const options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: true,
-      useBom: true,
-      headers: ['CouseName', 'TraineeName', 'Venue']
-    };
-let resut=[]
-   let group = {CouseName: String,TraineeName: String,Venue: String};
-
-    group.CouseName=json.announceTraining.courseName;
-    group.TraineeName=json.user.name;
-    
-    group.Venue=json.announceTraining.venueName;
-
-resut.push(group);
-   new Angular2Csv(resut, 'My Report', options);
- 
-}
-
-  exportCsv(json: any){
-
-this.downloadFile(json);
-
+return this.http.get(this.baseUrl+'/getTraineeListByExportById/'+id);
   }
+
+
+
 
 }
