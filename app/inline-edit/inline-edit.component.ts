@@ -46,8 +46,7 @@ export class InlineEditComponent {
 
   onSubmit() {
     if (this.popover) {
-this.datauser.comments=this.comment;
-    alert(JSON.stringify(this.datauser));
+      this.datauser.comments=this.comment;
        this.approvalService.rejectTraining(this.datauser)
       .subscribe(message =>console.log("rejected nomination id "+message.id));
       this.popover.close(this.comment);
