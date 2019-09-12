@@ -103,16 +103,10 @@ export class TraineeApprovalComponent implements OnInit {
   }
 
 
-
-
-  test():void{
-
-  }
-
   approveTrainee(userNomimation:any) {
  
      this.approvalService.approveTraining(userNomimation)
-      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
+      .subscribe(message => console.log("Test "+JSON.stringify(message)));
   
   
   }
