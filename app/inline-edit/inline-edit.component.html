@@ -3,6 +3,7 @@
       
       <mat-form-field>
         <input matInput maxLength="140" name="comment" [(ngModel)]="comment">
+       
         <mat-hint align="end">{{comment?.length || 0}}/140</mat-hint>
       </mat-form-field>
 

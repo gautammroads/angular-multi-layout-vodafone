@@ -103,6 +103,8 @@ export class TraineeApprovalComponent implements OnInit {
   }
 
 
+
+
   test():void{
 
   }
@@ -114,13 +116,6 @@ export class TraineeApprovalComponent implements OnInit {
   
   
   }
- rejectTrainee(userNomimation:any) {
  
- this.approvalService.rejectTraining(userNomimation)
-      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
-   
-   
-  
-  }
 
 }

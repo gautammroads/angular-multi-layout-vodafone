@@ -125,10 +125,9 @@ $(document).ready(function(){
               hasBackdrop
               xAlign="start"
               yAlign="start"
-              [close]="test()"
              >
 
-            <inline-edit [value]="row.user.name"></inline-edit>
+            <inline-edit [value]="row.comments" [data]="row"></inline-edit>
         </sat-popover>
        
       
