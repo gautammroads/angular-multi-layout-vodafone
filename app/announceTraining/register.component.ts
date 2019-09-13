@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { RegisterService } from './register.service';
 import { Announce } from './announce';
 import { Message } from '../message';
+import { NgForm } from '@angular/forms'
 
 
 const httpOptions = {
@@ -27,10 +28,14 @@ message:Message;
 announcedata?: Announce;
 announce?: Announce[];
 
-constructor(private registerService:RegisterService ) { }
+constructor(private registerService:RegisterService ) { 
+ 
+}
 
   ngOnInit() {
-
+ this.model.nDueDate= new Date().toISOString().substring(0, 10);
+ this.model.tStartDate= new Date().toISOString().substring(0, 10);
+ this.model.tEndDate= new Date().toISOString().substring(0, 10);
   }
 
 
@@ -40,11 +45,14 @@ constructor(private registerService:RegisterService ) { }
 
   }
 
-announceTraining():void{
+announceTraining(f:NgForm):void{
  this.postTraining();
 
 
 }
+
   
+
+
 
 }
