@@ -31,7 +31,7 @@
 
                     <div class="form-group">
                         <label for="nDueDate">Nomination Due Date</label>
-                        <input type="date" class="form-control" name="nDueDate" [(ngModel)]="model.nDueDate" #nDueDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nDueDate.invalid }"  />
+                        <input type="date" class="form-control" name="nDueDate" [(ngModel)]="model.nDueDate"  #nDueDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nDueDate.invalid }"  />
                         <div *ngIf="f.submitted && nDueDate.invalid" class="invalid-feedback">
                             <div *ngIf="nDueDate.errors.required">Due Date is required</div>
                            
@@ -63,7 +63,7 @@
                     
                  
                     <div class="form-group">
-                       <button class="btn btn-primary " (click)="announceTraining()" >Announce</button>
+                       <button class="btn btn-primary " (click)="announceTraining();f.reset()" >Announce</button>
                       
                     </div>
                 </form>
