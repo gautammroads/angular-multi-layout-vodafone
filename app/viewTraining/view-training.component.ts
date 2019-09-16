@@ -106,7 +106,7 @@ export class ViewTrainingComponent  implements OnInit {
   applyTraining(announce:Announce) {
  
 this.viewService.traineeNomination(announce)
-      .subscribe(message =>  alert("Test "+JSON.stringify(message)));
+      .subscribe(message =>  console.log("Training Id"+JSON.stringify(message)));
   
   }
 
