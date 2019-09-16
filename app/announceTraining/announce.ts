@@ -10,4 +10,5 @@ tEndDate?:Date;
 courseContent?:string;
 courseDuration?:string;
 
+
 }

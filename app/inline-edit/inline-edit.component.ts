@@ -55,6 +55,7 @@ export class InlineEditComponent {
 
   onCancel() {
     if (this.popover) {
+      this.datauser.status=0
       this.popover.close();
     }
   }
