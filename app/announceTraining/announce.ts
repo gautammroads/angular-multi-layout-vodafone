@@ -9,5 +9,5 @@ tStartDate?:Date;
 tEndDate?:Date;
 courseContent?:string;
 courseDuration?:string;
-
+applyStatus:boolean
 }

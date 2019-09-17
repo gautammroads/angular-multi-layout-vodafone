@@ -124,11 +124,12 @@ $(document).ready(function(){
     <th cdk-header-cell *cdkHeaderCellDef>
        Action <span ></span>
     </th>
-    <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="applyTraining(row)">Apply</button>
+    <td cdk-cell *cdkCellDef="let row" >
+      <button class="btn btn-primary"  [disabled]='row.applyStatus===true' (click)="applyTraining(row); row.applyStatus=true">Apply</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
+
 
 
   <!-- Header and Row Declarations -->

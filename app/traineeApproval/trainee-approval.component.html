@@ -110,7 +110,7 @@ $(document).ready(function(){
        Action <span ></span>
     </th>
     <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" (click)="approveTrainee(row)">Approve</button>
+      <button class="btn btn-primary" [disabled]='(row.status===2 || row.status===1)' (click)="approveTrainee(row);row.status=1">Approve</button>
     </td>
     <td cdk-cell *cdkFooterCellDef="let row"> test </td>
   </ng-container>
@@ -120,11 +120,12 @@ $(document).ready(function(){
      
     </th>
     <td cdk-cell *cdkCellDef="let row" >
-      <button class="btn btn-primary" [satPopoverAnchorFor]="p" (click)="p.open()">Reject</button>
+      <button class="btn btn-primary" [satPopoverAnchorFor]="p" [disabled]='(row.status===2 || row.status===1)' (click)="p.open(); row.status=2">Reject</button>
           <sat-popover #p
               hasBackdrop
               xAlign="start"
               yAlign="start"
+             
              >
 
             <inline-edit [value]="row.comments" [data]="row"></inline-edit>
