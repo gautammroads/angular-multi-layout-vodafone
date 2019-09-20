@@ -28,8 +28,15 @@ baseUrl='http://localhost:8082/OnPremPoc';
 
 
 /** POST: add a new hero to the database */
-  announceTraining(announce: Announce): Observable<Announce> {
-    return this.http.post<Announce>(this.baseUrl+'/postdata', announce);
+ announceTraining(modal: any,file:File): Observable<Announce> {
+let formData:FormData = new FormData();
+formData.append('file', file, file.name);
+formData.append('announce', new Blob([JSON.stringify(modal)],
+        {
+            type: "application/json"
+        }));
+
+    return this.http.post<Announce>(this.baseUrl+'/postdata', formData);
 
 
   }

@@ -27,6 +27,7 @@ model: any={};
 message:Message;
 announcedata?: Announce;
 announce?: Announce[];
+fileToUpload: File = null;
 
 constructor(private registerService:RegisterService ) { 
  
@@ -39,13 +40,21 @@ constructor(private registerService:RegisterService ) {
   }
 
 
+
+handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+   // this.model.file=this.fileToUpload ;
+}
+
   postTraining(): void {
-    this.registerService.announceTraining(JSON.parse(JSON.stringify(this.model)))
+
+    this.registerService.announceTraining(this.model,this.fileToUpload)
       .subscribe(message => this.announcedata = message);
 
+//alert(this.fileToUpload.name);
   }
 
-announceTraining(f:NgForm):void{
+announceTraining():void{
  this.postTraining();
 
 

@@ -1,13 +1,11 @@
-
-
-    <!-- main app container -->
+<!-- main app container -->
 <div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                    <div class="form-group">
-                        <label for="courseName">Course Name</label>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+					<div class="form-group">
+						<label for="courseName">Course Name</label>
                         <input type="text" class="form-control" name="courseName" [(ngModel)]="model.courseName" #courseName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && courseName.invalid }" required />
                         <div *ngIf="f.submitted && courseName.invalid" class="invalid-feedback">
                             <div *ngIf="courseName.errors.required">Course Name is required</div>
@@ -58,7 +56,14 @@
                       <div class="form-group">
                         <label for="courseContent">Course Content</label>
                         <input type="text" class="form-control" name="courseContent" [(ngModel)]="model.courseContent" #trainerName="ngModel" />
-                        
+                        <div class="form-group">
+                          
+                       <label for="file">Choose File</label>
+                        <input type="file"
+                         id="file"
+                        (change)="handleFileInput($event.target.files)">
+
+                    </div>
                     </div>
                     
                  
@@ -71,5 +76,3 @@
         </div>
     </div>
 </div>
-
-
