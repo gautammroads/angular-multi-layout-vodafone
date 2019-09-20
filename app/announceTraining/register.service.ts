@@ -41,9 +41,6 @@ formData.append('announce', new Blob([JSON.stringify(modal)],
 
   }
 
-
-
-
   getTrainingDetails (): Observable<Announce[]> {
     
 return this.http.get<Announce[]>(this.baseUrl+'/getAllActiveTrainings');
