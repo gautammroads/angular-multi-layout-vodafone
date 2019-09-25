@@ -1,6 +1,6 @@
 /* Add application styles & imports to this file! */
 body{background:#ebebeb !important;position:relative;padding-bottom:70px;font-family:Vodafone Rg !important;font-size:16px;}
-.navbar{background:#fff;margin-bottom:30px;}
+.navbar{background:#fff;margin-bottom:30px;border-bottom:1px solid #e60000;}
 .login-form form{background:#fff !important;}
 .footer{
     background-color: #333!important;
@@ -22,7 +22,7 @@ body{background:#ebebeb !important;position:relative;padding-bottom:70px;font-fa
     border-radius: 0;
     box-shadow: none;
     color: #666666;
-    font-size: 18px;
+    font-size: 16px;
     height: 47px;
     border: 1px solid #999;
     padding: .375rem .75rem !important;
@@ -60,3 +60,6 @@ body {
 }
 .search-btn:hover {background: #6b6a6a;border:1px solid #6b6a6a;padding: 9px 18px;cursor:pointer;}
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-toggler:focus, .navbar-inverse .navbar-toggler:hover{color:#333;}
+a.nav-link{font-size:18px;padding: 0 15px;}
+.container {width: 1072px;}
+.navbar-nav{margin-left:40px;}
