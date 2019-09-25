@@ -1,1 +1,62 @@
 /* Add application styles & imports to this file! */
+body{background:#ebebeb !important;position:relative;padding-bottom:70px;font-family:Vodafone Rg !important;font-size:16px;}
+.navbar{background:#fff;margin-bottom:30px;}
+.login-form form{background:#fff !important;}
+.footer{
+    background-color: #333!important;
+    color: #fff;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    font-size:14px;
+}
+.btn-primary{background:#e60000 !important;}
+.card {
+    box-shadow: 2px 1px 6px 1px #ccc;
+    border-radius: 0;
+    border: 0 none;
+    padding:25px;
+}
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    color: #666666;
+    font-size: 18px;
+    height: 47px;
+    border: 1px solid #999;
+    padding: .375rem .75rem !important;
+}
+textarea.form-control{height:90px;max-width:100% !important;}
+.form-group{margin-bottom:25px;}
+.form-group label{font-weight:bold;color:#666;line-height: 1;}
+.btn {
+    border-radius: 0;
+    padding: 9px 40px;
+    font-size: 18px;
+}
+.btn-primary {
+    background: #e60000 !important;color:#fff !important;
+}
+.button-separator {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top:20px;
+}
+.font-14{font-size:14px;}
+html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+.table-bordered th{background:#ebebeb;border:1px solid #ccc;font-size:14px;font-weight:normal;}
+.form-inline .form-control{height:42px;}
+.search-btn {
+    background: #333;
+    border: 1px solid #333;
+   cursor:pointer;
+    padding: 9px 18px;
+}
+.search-btn:hover {background: #6b6a6a;border:1px solid #6b6a6a;padding: 9px 18px;cursor:pointer;}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-toggler:focus, .navbar-inverse .navbar-toggler:hover{color:#333;}
