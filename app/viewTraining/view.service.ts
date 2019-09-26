@@ -26,7 +26,7 @@ export class ViewService {
 
 
    
-baseUrl='http://localhost:8082/OnPremPoc';
+baseUrl='http://192.168.113.85:8082/OnPremPoc';
 
   constructor(private http: HttpClient) { }
 
