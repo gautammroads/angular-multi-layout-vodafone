@@ -27,150 +27,155 @@ $(document).ready(function(){
 
 
 
-
-<table cdk-table [dataSource]="dataOnPage$" class="table table-hover">
-  
-  <!-- Hero Name Column -->
-  <ng-container cdkColumnDef="courseName">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseName')"> 
-      Course Name <span *ngIf="sortKey$.value === 'courseName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-    </th>
-    <td cdk-cell *cdkCellDef="let row"> {{row.announceTraining.courseName}} </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
-  <!-- Hero Attack Column -->
-  <ng-container cdkColumnDef="traineeName">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('traineeName')">
-     Trainee Name <span *ngIf="sortKey$.value === 'traineeName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-     </th>
-    <td cdk-cell 
-        *cdkCellDef="let row" 
-    > 
-      {{row.user.name}} 
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
-  <!-- Hero Defense Column -->
-  <ng-container cdkColumnDef="nDueDate">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('nDueDate')">
-      Due Date <span *ngIf="sortKey$.value === 'nDueDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-    </th>
-    <td cdk-cell 
-        *cdkCellDef="let row" 
-        >
-      {{row.announceTraining.nDueDate | date: 'dd/MM/yyyy'}} 
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
- <!-- Hero Defense Column -->
-  <ng-container cdkColumnDef="courseDuration">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseDuration')">
-      Course Duration <span *ngIf="sortKey$.value === 'courseDuration'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-    </th>
-    <td cdk-cell 
-        *cdkCellDef="let row" 
-        >
-      {{row.announceTraining.courseDuration}} 
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-  <!-- Hero Speed Column -->
-  <ng-container cdkColumnDef="venueName">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('venueName')">
-      Venue <span *ngIf="sortKey$.value === 'venueName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-    </th>
-    <td cdk-cell 
-        *cdkCellDef="let row" 
-        >
-  {{row.announceTraining.venueName}} 
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
-  <!-- Hero Healing Column -->
-  <ng-container cdkColumnDef="trainerName">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('trainerName')">
-      Trainer Name <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
-    </th>
-    <td cdk-cell 
-        *cdkCellDef="let row" 
-       >
-    {{row.announceTraining.trainerName}}
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
- 
-
-  <ng-container cdkColumnDef="approveTrainee">
-    <th cdk-header-cell *cdkHeaderCellDef>
-       Action <span ></span>
-    </th>
-    <td cdk-cell *cdkCellDef="let row">
-      <button class="btn btn-primary" [disabled]='(row.status===2 || row.status===1)' (click)="approveTrainee(row);row.status=1">Approve</button>
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
- <!-- Level Up Column -->
-  <ng-container cdkColumnDef="rejectTrainee">
-    <th cdk-header-cell *cdkHeaderCellDef>
-     
-    </th>
-    <td cdk-cell *cdkCellDef="let row" >
-      <button class="btn btn-primary" [satPopoverAnchorFor]="p" [disabled]='(row.status===2 || row.status===1)' (click)="p.open(); row.status=2">Reject</button>
-          <sat-popover #p
-              hasBackdrop
-              xAlign="start"
-              yAlign="start"
-             
-             >
-
-            <inline-edit [value]="row.comments" [data]="row"></inline-edit>
-        </sat-popover>
-       
-      
-    </td>
-    <td cdk-cell *cdkFooterCellDef="let row"> test </td>
-  </ng-container>
-
-  <!-- Header and Row Declarations -->
-  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
-
-</table>
-
-<div class="row">
-  <div class="col-6">
-    <div class="form-inline">
-      <div class="form-group">
-        <div class="input-group mr-3">
-            <input 
-              type="text" 
-              class="form-control"
-              placeholder="Search..."
-              [formControl]="searchFormControl">
-            <div class="input-group-append">
-              <button 
-                class="btn btn-outline-secondary"
-                (click)="searchFormControl.setValue('')">
-                x
-              </button>
-            </div>
+<div class="container">
+    <div class="row mb-4">
+			<div class="col-6">
+      <div class="form-inline">
+        <div class="form-group">
+          <div class="input-group mr-3">
+              <input 
+                type="text" 
+                class="form-control"
+                placeholder="Search..."
+                [formControl]="searchFormControl">
+              <div class="input-group-append">
+                <button 
+                  class="btn btn-outline-secondary search-btn"
+                  (click)="searchFormControl.setValue('')">
+                  x
+                </button>
+              </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-6">
-    <div class="float-right">
-      <ngb-pagination 
-        [collectionSize]="tableDataSource$.value.length" 
-        [pageSize]="pageSize$.value"
-        [page]="currentPage$.value"
-        (pageChange)="currentPage$.next($event)">
-      </ngb-pagination>
+		</div>
+    <div class="card">
+      <table cdk-table [dataSource]="dataOnPage$" class="table table-hover table-bordered">
+        
+        <!-- Hero Name Column -->
+        <ng-container cdkColumnDef="courseName">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseName')"> 
+            Course Name <span *ngIf="sortKey$.value === 'courseName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+          </th>
+          <td cdk-cell *cdkCellDef="let row"> {{row.announceTraining.courseName}} </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+
+        <!-- Hero Attack Column -->
+        <ng-container cdkColumnDef="traineeName">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('traineeName')">
+          Trainee Name <span *ngIf="sortKey$.value === 'traineeName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+          </th>
+          <td cdk-cell 
+              *cdkCellDef="let row" 
+          > 
+            {{row.user.name}} 
+          </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+
+        <!-- Hero Defense Column -->
+        <ng-container cdkColumnDef="nDueDate">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('nDueDate')">
+            Due Date <span *ngIf="sortKey$.value === 'nDueDate'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+          </th>
+          <td cdk-cell 
+              *cdkCellDef="let row" 
+              >
+            {{row.announceTraining.nDueDate | date: 'dd/MM/yyyy'}} 
+          </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+
+      <!-- Hero Defense Column -->
+        <ng-container cdkColumnDef="courseDuration">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('courseDuration')">
+            Course Duration <span *ngIf="sortKey$.value === 'courseDuration'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+          </th>
+          <td cdk-cell 
+              *cdkCellDef="let row" 
+              >
+            {{row.announceTraining.courseDuration}} 
+          </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+        <!-- Hero Speed Column -->
+        <ng-container cdkColumnDef="venueName">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('venueName')">
+            Venue <span *ngIf="sortKey$.value === 'venueName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+          </th>
+          <td cdk-cell 
+              *cdkCellDef="let row" 
+              >
+        {{row.announceTraining.venueName}} 
+          </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+
+        <!-- Hero Healing Column -->
+        <ng-container cdkColumnDef="trainerName">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('trainerName')">
+            Trainer Name <span *ngIf="sortKey$.value === 'trainerName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+          </th>
+          <td cdk-cell 
+              *cdkCellDef="let row" 
+            >
+          {{row.announceTraining.trainerName}}
+          </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+
+      
+
+        <ng-container cdkColumnDef="approveTrainee">
+          <th cdk-header-cell *cdkHeaderCellDef>
+            Action <span ></span>
+          </th>
+          <td cdk-cell *cdkCellDef="let row">
+            <button class="btn btn-primary" [disabled]='(row.status===2 || row.status===1)' (click)="approveTrainee(row);row.status=1">Approve</button>
+          </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+      <!-- Level Up Column -->
+        <ng-container cdkColumnDef="rejectTrainee">
+          <th cdk-header-cell *cdkHeaderCellDef>
+          
+          </th>
+          <td cdk-cell *cdkCellDef="let row" >
+            <button class="btn btn-primary" [satPopoverAnchorFor]="p" [disabled]='(row.status===2 || row.status===1)' (click)="p.open(); row.status=2">Reject</button>
+                <sat-popover #p
+                    hasBackdrop
+                    xAlign="start"
+                    yAlign="start"
+                  
+                  >
+
+                  <inline-edit [value]="row.comments" [data]="row"></inline-edit>
+              </sat-popover>
+            
+            
+          </td>
+          <td cdk-cell *cdkFooterCellDef="let row"> test </td>
+        </ng-container>
+
+        <!-- Header and Row Declarations -->
+        <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
+        <tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
+
+      </table>
+    </div>
+  <div class="row mt-4">
+    
+    <div class="col-12">
+      <div class="float-right">
+        <ngb-pagination 
+          [collectionSize]="tableDataSource$.value.length" 
+          [pageSize]="pageSize$.value"
+          [page]="currentPage$.value"
+          (pageChange)="currentPage$.next($event)">
+        </ngb-pagination>
+      </div>
     </div>
   </div>
-</div>
+ </div> 

@@ -1,32 +1,34 @@
- <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" title="This Header is rendered by /app/_layout/site-header/site-header.component.html">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">Training Project</a>
+ <nav class="navbar navbar-toggleable-md navbar-inverse" title="This Header is rendered by /app/_layout/site-header/site-header.component.html">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <a class="navbar-brand" href="#"><img src="https://cdn.jsdelivr.net/gh/gautammroads/angular-multi-layout-vodafone@gautam/app/Images/V-logo.png" alt="logo" width="48" height="48" class="logo mr-2">Training Project</a>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+        
+            <li class="nav-item">
+              <a class="nav-link login-active" routerLink="/login">Login</a>
+              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register">Announce Training</a>
+            </li>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-       
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Login</a>
-            
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Announce Training</a>
-          </li>
+              <a class="nav-link" routerLink="/about">View Trainings</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/profile">Trainee Nomination Approval</a>
+            </li> 
 
-         <li class="nav-item">
-            <a class="nav-link" routerLink="/about">View Trainings</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/profile">Trainee Nomination Approval</a>
-          </li> 
-
-           <li class="nav-item">
-            <a class="nav-link" routerLink="/dashboard">Approved Trainee List </a>
-          </li>
-        </ul>
-      </div>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard">Approved Trainee List </a>
+            </li>
+          </ul>
+        </div>
+       </div> 
     </nav>
     <style>
 .bg-inverse {
