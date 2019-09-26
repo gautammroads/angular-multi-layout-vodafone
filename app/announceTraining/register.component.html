@@ -1,77 +1,95 @@
 <!-- main app container -->
-<div class="jumbotron">
+<div class="">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 offset-md-2">
-				<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-					<div class="form-group">
-						<label for="courseName">Course Name</label>
-                        <input type="text" class="form-control" name="courseName" [(ngModel)]="model.courseName" #courseName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && courseName.invalid }" required />
-                        <div *ngIf="f.submitted && courseName.invalid" class="invalid-feedback">
-                            <div *ngIf="courseName.errors.required">Course Name is required</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="venueName">Venue Name</label>
-                        <input type="text" class="form-control" name="venueName" [(ngModel)]="model.venueName" #venueName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && venueName.invalid }" required />
-                        <div *ngIf="f.submitted && venueName.invalid" class="invalid-feedback">
-                            <div *ngIf="venueName.errors.required">Venue Name is required</div>
-                        </div>
-                    </div>
-
-                     <div class="form-group">
-                        <label for="trainerName">Trainer Name</label>
-                        <input type="text" class="form-control" name="trainerName" [(ngModel)]="model.trainerName" #trainerName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && trainerName.invalid }" required />
-                        <div *ngIf="f.submitted && trainerName.invalid" class="invalid-feedback">
-                            <div *ngIf="trainerName.errors.required">Trainer Name is required</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nDueDate">Nomination Due Date</label>
-                        <input type="date" class="form-control" name="nDueDate" [(ngModel)]="model.nDueDate"  #nDueDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nDueDate.invalid }"  />
-                        <div *ngIf="f.submitted && nDueDate.invalid" class="invalid-feedback">
-                            <div *ngIf="nDueDate.errors.required">Due Date is required</div>
-                           
-                        </div>
-                    </div>
-                     <div class="form-group">
-                        <label for="tStartDate">Start  Date</label>
-                        <input type="date" class="form-control" name="tStartDate" [(ngModel)]="model.tStartDate" #tStartDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tStartDate.invalid }"  />
-                        <div *ngIf="f.submitted && tStartDate.invalid" class="invalid-feedback">
-                            <div *ngIf="tStartDate.errors.required">Start Date is required</div>
-                           
-                        </div>
-                    </div>
-
-                     <div class="form-group">
-                        <label for="tEndDate">End  Date</label>
-                        <input type="date" class="form-control" name="tEndDate" [(ngModel)]="model.tEndDate" #tEndDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tStartDate.invalid }"  />
-                        <div *ngIf="f.submitted && tStartDate.invalid" class="invalid-feedback">
-                            <div *ngIf="tEndDate.errors.required">End Date is required</div>
-                           
-                        </div>
-                    </div>
-
-                      <div class="form-group">
-                        <label for="courseContent">Course Content</label>
-                        <input type="text" class="form-control" name="courseContent" [(ngModel)]="model.courseContent" #trainerName="ngModel" />
+			<div class="col-md-10 offset-md-1">
+          <div class="card">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                    <div class="row"> 
+                      <div class="col-md-6">
                         <div class="form-group">
-                          
-                       <label for="file">Choose File</label>
-                        <input type="file"
-                         id="file"
-                        (change)="handleFileInput($event.target.files)">
+                          <label for="courseName">Course Name</label>
+                            <input type="text" class="form-control" name="courseName" [(ngModel)]="model.courseName" #courseName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && courseName.invalid }" required />
+                            <div *ngIf="f.submitted && courseName.invalid" class="invalid-feedback">
+                                <div *ngIf="courseName.errors.required">Course Name is required</div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="venueName">Venue Name</label>
+                            <input type="text" class="form-control" name="venueName" [(ngModel)]="model.venueName" #venueName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && venueName.invalid }" required />
+                            <div *ngIf="f.submitted && venueName.invalid" class="invalid-feedback">
+                                <div *ngIf="venueName.errors.required">Venue Name is required</div>
+                            </div>
+                        </div>
+                      </div> 
+                    </div>   
+                    <div class="row">
+                      <div class="col-md-6">
+                         <div class="form-group">
+                            <label for="trainerName">Trainer Name</label>
+                            <input type="text" class="form-control" name="trainerName" [(ngModel)]="model.trainerName" #trainerName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && trainerName.invalid }" required />
+                            <div *ngIf="f.submitted && trainerName.invalid" class="invalid-feedback">
+                                <div *ngIf="trainerName.errors.required">Trainer Name is required</div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nDueDate">Nomination Due Date</label>
+                            <input type="date" class="form-control" name="nDueDate" [(ngModel)]="model.nDueDate"  #nDueDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nDueDate.invalid }"  />
+                            <div *ngIf="f.submitted && nDueDate.invalid" class="invalid-feedback">
+                                <div *ngIf="nDueDate.errors.required">Due Date is required</div>
+                              
+                            </div>
+                        </div>
+                      </div>
+                    </div>    
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="tStartDate">Start  Date</label>
+                            <input type="date" class="form-control" name="tStartDate" [(ngModel)]="model.tStartDate" #tStartDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tStartDate.invalid }"  />
+                            <div *ngIf="f.submitted && tStartDate.invalid" class="invalid-feedback">
+                                <div *ngIf="tStartDate.errors.required">Start Date is required</div>
+                              
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                         <div class="form-group">
+                            <label for="tEndDate">End  Date</label>
+                            <input type="date" class="form-control" name="tEndDate" [(ngModel)]="model.tEndDate" #tEndDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tStartDate.invalid }"  />
+                            <div *ngIf="f.submitted && tStartDate.invalid" class="invalid-feedback">
+                                <div *ngIf="tEndDate.errors.required">End Date is required</div>
+                              
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="courseContent">Course Content</label>
+                            <textarea  class="form-control" name="courseContent" [(ngModel)]="model.courseContent" #trainerName="ngModel" ></textarea>
+                         </div>
+                      </div>
+                     <div class="col-md-12">
+                         <div class="form-group">
+                            <label for="file">Choose File</label>
+                            <div>  <input type="file"
+                              id="file" class="font-14"
+                              (change)="handleFileInput($event.target.files)"></div>
 
+                          </div>
+                      </div>
+                    </div>   
+                    <div class="button-separator text-right">
+                          <button class="btn btn-primary " (click)="announceTraining();f.reset()" >Announce</button>
                     </div>
-                    </div>
-                    
-                 
-                    <div class="form-group">
-                       <button class="btn btn-primary " (click)="announceTraining();f.reset()" >Announce</button>
-                      
-                    </div>
-                </form>
+                    </form>
+                </div>  
             </div>
         </div>
     </div>
